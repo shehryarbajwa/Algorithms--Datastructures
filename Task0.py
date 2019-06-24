@@ -15,6 +15,8 @@ with open('/Users/shehryarbajwa/algorithms-challenges/calls.csv', 'r') as f:
 
 print('First record of texts, ' + texts[0][0] + ' texts ' + texts[0][1] + ' at time ' + texts[0][2])
 
+for i in range(len(calls)):
+    print('Last record of calls, ' + calls[[len(calls)-1][0] + ' calls ' + calls[[len(calls)-2][1] + ' at time ' + calls[[len(calls)-3][3])
 """
 TASK 0:
 What is the first record of texts and what is the last record of calls?
