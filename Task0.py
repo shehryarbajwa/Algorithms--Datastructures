@@ -3,14 +3,16 @@ Read file into texts and calls.
 It's ok if you don't understand how to read files.
 """
 import csv
-with open('texts.csv', 'r') as f:
+with open('/Users/shehryarbajwa/algorithms-challenges/texts.csv', 'r') as f:
     reader = csv.reader(f)
     texts = list(reader)
 
-with open('calls.csv', 'r') as f:
+with open('/Users/shehryarbajwa/algorithms-challenges/calls.csv', 'r') as f:
     reader = csv.reader(f)
     calls = list(reader)
 
+for i in texts:
+    print('First record of text, ' + i[0] + ' texts ' + i[1] + ' at time ' + i[2])
 
 """
 TASK 0:
