@@ -11,8 +11,9 @@ with open('/Users/shehryarbajwa/algorithms-challenges/calls.csv', 'r') as f:
     reader = csv.reader(f)
     calls = list(reader)
 
-for i in texts:
-    print('First record of text, ' + i[0] + ' texts ' + i[1] + ' at time ' + i[2])
+
+
+print('First record of texts, ' + texts[0][0] + ' texts ' + texts[0][1] + ' at time ' + texts[0][2])
 
 """
 TASK 0:
