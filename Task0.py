@@ -29,6 +29,7 @@ Print messages:
 Run time analysis:
 
 The run time for each query is going to be O(1) since both print statements require lookups and not iterating over the 2D array
+The average run time will be O(1)
 
 """
 
