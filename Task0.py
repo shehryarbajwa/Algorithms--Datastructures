@@ -12,12 +12,9 @@ with open('/Users/shehryarbajwa/algorithms-challenges/calls.csv', 'r') as f:
     calls = list(reader)
 
 
-
 print('First record of texts, ' + texts[0][0] + ' texts ' + texts[0][1] + ' at time ' + texts[0][2])
 
-
-
-print('Last record of calls, ' + calls[len(calls)-1][0] + ' calls ' + calls[len(calls)-1][1] + ' at time, ' + calls[len(calls)-1][2] + ' lasting ' + calls[len(calls)-1][3] + ' seconds ' )
+print('Last record of calls, ' + calls[len(calls)-1][0] + ' calls ' + calls[len(calls)-1][1] + ' at time ' + calls[len(calls)-1][2] + ', lasting ' + calls[len(calls)-1][3] + ' seconds ' )
 
 
 """
@@ -27,4 +24,12 @@ Print messages:
 "First record of texts, <incoming number> texts <answering number> at time <time>"
 "Last record of calls, <incoming number> calls <answering number> at time <time>, lasting <during> seconds"
 """
+
+"""
+Run time analysis:
+
+The run time for each query is going to be O(1) since both print statements require lookups and not iterating over the 2D array
+
+"""
+
 
