@@ -12,6 +12,9 @@ with open('/Users/shehryarbajwa/algorithms-challenges/calls.csv', 'r') as f:
     calls = list(reader)
 
 """
+All columns are equal.
+
+
 TASK 2: Which telephone number spent the longest time on the phone
 during the period? Don't forget that time spent answering a call is
 also time spent on the phone.
@@ -20,13 +23,12 @@ Print a message:
 September 2016.".
 """
 
-numbers_dict = {}
-
+number_to_call = {}
 for call in calls:
-    if call[0] not in numbers_dict:
-        numbers_dict.update({'number' : call[0], 'duration' : calls[0][3]})
+    if call[0] not in number_to_call:
+        number_to_call[call[0]]=[]
+        number_to_call[call[0]].append([call[1], call[3]])
+    else:
+        number_to_call[call[0]].append([call[1], call[3]])
 
-print(numbers_dict)
-
-for key, val in numbers_dict.values():
-    print("Key: " + str(key) + "\t Value:" + str(val))
+print(number_to_call)
