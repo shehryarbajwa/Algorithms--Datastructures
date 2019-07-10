@@ -4,11 +4,11 @@ It's ok if you don't understand how to read files.
 """
 import csv
 
-with open('texts.csv', 'r') as f:
+with open('/Users/shehryarbajwa/algorithms-challenges/texts.csv', 'r') as f:
     reader = csv.reader(f)
     texts = list(reader)
 
-with open('calls.csv', 'r') as f:
+with open('/Users/shehryarbajwa/algorithms-challenges/calls.csv', 'r') as f:
     reader = csv.reader(f)
     calls = list(reader)
 
@@ -43,3 +43,17 @@ Print the answer as a part of a message::
 to other fixed lines in Bangalore."
 The percentage should have 2 decimal digits
 """
+
+print("Hello, World!")
+
+empty = {}
+
+a = [['(080)0801122', '03118609999', '0000', '1111'] , ['(0801123', '03118609999', '0000', '2222'], ['(0801123', '03428609999', '0000', '2222'], ['(0801123', '03118609999', '0000', '2222'], ['0801123', '03118609999', '0000', '2222']]
+
+for item in a:
+    if item[0] not in empty:
+        if item[0].find("(0"):
+            empty[item[0]] = a[0][1]
+    
+    
+print(empty)
