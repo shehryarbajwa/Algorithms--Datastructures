@@ -60,4 +60,4 @@ length_2 = (len(empty_2))
 
 print(f'{round(length_2 / length_1 , 4) * 100}' + ' percent of calls from fixed lines in Bengalore are calls to other fixed lines in Bengalore.')
 
-
+print()
