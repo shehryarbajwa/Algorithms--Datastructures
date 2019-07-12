@@ -4,11 +4,11 @@ It's ok if you don't understand how to read files.
 """
 import csv
 
-with open('texts.csv', 'r') as f:
+with open('/Users/shehryarbajwa/algorithms-challenges/texts.csv', 'r') as f:
     reader = csv.reader(f)
     texts = list(reader)
 
-with open('calls.csv', 'r') as f:
+with open('/Users/shehryarbajwa/algorithms-challenges/calls.csv', 'r') as f:
     reader = csv.reader(f)
     calls = list(reader)
 
@@ -25,3 +25,10 @@ Print a message:
 The list of numbers should be print out one per line in lexicographic order with no duplicates.
 """
 
+empty = {}
+
+for call in calls:
+    if call[0] not in empty:
+        if call[0][0:3] == '140':
+            empty = call[0]
+            print("These numbers could be telemarketers " + f'{empty}')
