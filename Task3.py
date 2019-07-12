@@ -55,5 +55,5 @@ for item in calls:
         if item[0].find("(080"):
             empty[item[0]] = a[0][1]
     
-    
+print(empty[0])
 print(empty)
