@@ -48,12 +48,10 @@ print("Hello, World!")
 
 empty = {}
 
-a = [['(080)0801122', '03118609999', '0000', '1111'] , ['(0801123', '03118609999', '0000', '2222'], ['(0801123', '03428609999', '0000', '2222'], ['(0801123', '03118609999', '0000', '2222'], ['0801123', '03118609999', '0000', '2222']]
-
-for item in calls:
-    if item[0] not in empty:
-        if item[0].find("(080"):
-            empty[item[0]] = a[0][1]
+print(calls[0][0])
+for call in calls:
+  if call[0] not in empty:
+    if call[0][0:5] == '(080)':
+      empty[call[0]] = calls[0][1]
     
-print(empty[0])
-print(empty)
+print(len(empty))
