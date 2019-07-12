@@ -44,14 +44,13 @@ to other fixed lines in Bangalore."
 The percentage should have 2 decimal digits
 """
 
-print("Hello, World!")
-
 empty = {}
 
 print(calls[0][0])
 for call in calls:
   if call[0] not in empty:
     if call[0][0:5] == '(080)':
-      empty[call[0]] = calls[0][1]
+      empty[call[0]] = call[1]
     
-print(len(empty))
+print((empty))
+
