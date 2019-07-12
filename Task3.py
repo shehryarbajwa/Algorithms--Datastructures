@@ -45,15 +45,19 @@ The percentage should have 2 decimal digits
 """
 
 empty = {}
-
+empty_2 = {}
 
 for call in calls:
   if call[0] not in empty:
     if call[0][0:5] == '(080)':
       empty[call[0]] = call[1]
       print(f'The numbers called by people in Bengalore have codes ' + f'{empty[call[0]]}')
+      if call[1][0:5] == '(080)':
+        empty_2[call[0]] = call[1]
 
+length_1 = (len(empty))
+length_2 = (len(empty_2))
 
-
+print(f'{round(length_2 / length_1 , 4) * 100}' + ' percent of calls from fixed lines in Bengalore are calls to other fixed lines in Bengalore.')
 
 
