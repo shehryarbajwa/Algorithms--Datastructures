@@ -52,7 +52,8 @@ for call in calls:
     if call[0][0:5] == '(080)':
       empty[call[0]] = call[1]
       print(f'The numbers called by people in Bengalore have codes ' + f'{empty[call[0]]}')
-      print(len(empty))
+
+
 
 
 
