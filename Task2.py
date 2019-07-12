@@ -48,8 +48,7 @@ while i <= 5:
 
 total_durations = sum(duration_list)
 
-print(f'{maxvalue[0]} ' + ' spent the longest time, ' + f'{total_durations}, seconds' + ' on the phone during September 2016' )
-
+print(f'{maxvalue[0]} ' + ' spent the longest time, ' + f'{total_durations}, seconds' + ' on the phone during September 2016')
 """
 Call is a list which contains 4 elements
 when we do call in calls

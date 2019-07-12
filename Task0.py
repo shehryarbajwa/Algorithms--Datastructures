@@ -25,12 +25,5 @@ Print messages:
 "Last record of calls, <incoming number> calls <answering number> at time <time>, lasting <during> seconds"
 """
 
-"""
-Run time analysis:
-
-The run time for each query is going to be O(1) since both print statements require lookups and not iterating over the 2D array
-The average run time will be O(1)
-
-"""
 
 
