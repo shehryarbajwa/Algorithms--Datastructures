@@ -25,33 +25,22 @@ count = 0
 
 
 for call in calls:
-    if call[i][0] not in different_list:
-            different_list.append(call)
-    if call[i][1] not in different_list:
-            different_list.append(call)
-
+    if call[i] not in different_list:
+            different_list.append(call[i])
+    if call[i+1] not in different_list:
+            different_list.append(call[1])
 
 for text in texts:
-    if text[i][0] not in different_list:
-        different_list.append(text)
+    if text[i] not in different_list:
+        different_list.append(text[i])
 
-    if text[i][1] not in different_list:
-        different_list.append(text)
+    if text[i+1] not in different_list:
+        different_list.append(text[i+1])
         count = len(different_list)
 
 
 print("There are " + str(count) + ' different telephone numbers in the records.')
 
-
-
-"""
-Run-time analysis:
-
-The run time for each for-if loop is O(n). The total run time for both for loops when run isolated from each other 
-will be (m+n). Since the constant values are a miniscule determinant in the run time of the overall program
-we can just ignore it and the run time of the entire algorithm will be O(n)
-
-"""
 
 
 
