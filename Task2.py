@@ -24,15 +24,22 @@ September 2016.".
 """
 
 duration_dictionary = {}
-
+max_duration = 0
+phone = None
 
 for call in calls:
-    duration_dictionary[call[0]] = 0
-    duration_dictionary[call[1]] = 0
+    if call[0] not in duration_dictionary:
+        duration_dictionary[call[0]] = 0
+    if call[1] not in duration_dictionary:
+        duration_dictionary[call[1]] = 0
+
     duration_dictionary[call[0]] = duration_dictionary[call[0]] + int(call[3])
     duration_dictionary[call[1]] = duration_dictionary[call[1]] + int(call[3])
 
 for number, duration in duration_dictionary.items():
-    print(number)
-    print(duration)
+    if duration > max_duration:
+        max_duration = duration
+        phone = number
+
+print(f'{phone}' + ' spent the longest time ' + f'{max_duration}' + ' seconds, on the phone during September 2016')
 
