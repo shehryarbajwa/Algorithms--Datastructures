@@ -44,57 +44,22 @@ to other fixed lines in Bangalore."
 The percentage should have 2 decimal digits
 """
 
-# empty = {}
-# empty_2 = {}
+"""Check if the number belongs to Bangalore"""
+def numberFromBangalore(num):
+  isFromBangalore = num.startswith('(080)')
+  return isFromBangalore
 
-# for call in calls:
-#   if call[0] not in empty:
-#     if call[0][0:5] == '(080)':
-#       empty[call[0]] = call[1]
-#       print(f'The numbers called by people in Bengalore have codes ' + f'{empty[call[0]]}')
-#       if call[1][0:5] == '(080)':
-#         empty_2[call[0]] = call[1]
+"""Check area codes"""
+def checkAreacodes(num):
+  if num.startswith('(080)'):
+    fixedLine = num.startswith('(080)')
+  return fixedLine
 
-# length_1 = (len(empty))
-# length_2 = (len(empty_2))
+  if num.startswith('140'):
+    return num.startswith('140')
+  
+  if num.find(' ') and num[0] == '7' or num[0] == '8' or num[0] == '9':
+    return num[0:5]
 
-# print(f'{round(length_2 / length_1 , 4) * 100}' + ' percent of calls from fixed lines in Bengalore are calls to other fixed lines in Bengalore.')
 
-def isFromBangalore(number):
-  isfromBengalore = number.startswith('(080)')
-  return isfromBengalore
-
-def getAreaCode(number):
-  # fixed line
-  if number.startswith( '(' ):
-    fixedcode = number.split(')')[0].strip('()')
-    return fixedcode
-  # telemarketer
-  elif number.startswith( '140' ):
-    telemarketer = number.startswith('140')
-    return telemarketer
-  # mobile
-  elif number.find(' ') and number[0] == '7' or number[0] == '8' or number[0] == '9':
-    return number[0:5]                  
-
-codes_bangalore = []
-total_bangalore_calls_count = 0
-local_bangalore_calls_count = 0
-
-for call in calls:
-  if isFromBangalore( call[0] ):
-    total_bangalore_calls_count += 1
-    code = getAreaCode( call[1] )
-    if code not in codes_bangalore:
-      codes_bangalore.append( code )
-    if isFromBangalore( call[1] ):
-      local_bangalore_calls_count += 1
-
-codes_bangalore.sort()
-
-print( "The numbers called by people in Bangalore have codes:" )
-for code in codes_bangalore:
-  print( code )
-percentage_local = ( local_bangalore_calls_count / total_bangalore_calls_count ) * 100
-
-print( f"{round(percentage_local,2)} percent of calls from fixed lines in Bangalore are calls to other fixed lines in Bangalore.")
+  
