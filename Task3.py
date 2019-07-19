@@ -51,9 +51,9 @@ def numberFromBangalore(num):
 
 """Check area codes"""
 def checkAreacodes(num):
-  if num.startswith('(080)'):
-    fixedLine = num.startswith('(080)')
-  return fixedLine
+  if num.startswith('('):
+    fixedLine = num.split(')')[0].strip('()')
+    return fixedLine
 
   if num.startswith('140'):
     return num.startswith('140')
@@ -61,5 +61,26 @@ def checkAreacodes(num):
   if num.find(' ') and num[0] == '7' or num[0] == '8' or num[0] == '9':
     return num[0:5]
 
+"""Keep track of local calls to Bangalore numbers and all other calls"""
+count_bangalore_calls = 0
+count_all_calls = 0
+areaCodesList = []
 
-  
+for call in calls:
+  if numberFromBangalore(call[0]):
+    count_all_calls += 1
+    get_area_codes = checkAreacodes(call[1])
+    if get_area_codes not in areaCodesList:
+      areaCodesList.append(get_area_codes)
+    if numberFromBangalore(call[1]):
+      count_bangalore_calls += 1
+
+areaCodesList.sort()
+
+print('The numbers called by people in Bangalore have codes:')
+for code in areaCodesList:
+  print(code)
+
+percentage = ((count_bangalore_calls / count_all_calls) * 100)
+print(f"{round(percentage,2)}  percent of calls from fixed lines in Bangalore are calls to other fixed lines in Bangalore.")
+
