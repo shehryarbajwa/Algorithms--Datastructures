@@ -25,10 +25,22 @@ Print a message:
 The list of numbers should be print out one per line in lexicographic order with no duplicates.
 """
 
-empty = {}
+empty = []
 
 for call in calls:
     if call[0] not in empty:
-        if call[0][0:3] == '140':
-            empty = call[0]
-            print("These numbers could be telemarketers " + f'{empty}')
+        empty.append(call[0])
+    if call[1] in empty:
+        empty.remove(call[1])
+
+for text in texts:
+    if text[0] in empty:
+        empty.remove(text[0])
+    if text[1] in empty:
+        empty.remove(text[1])
+
+empty.sort()
+
+print("These numbers could be telemarketers:")
+for number in empty:
+    print(number)
