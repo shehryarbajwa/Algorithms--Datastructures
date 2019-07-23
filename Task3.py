@@ -56,7 +56,7 @@ def checkAreacodes(num):
     return fixedLine
 
   if num.find(' ') and num[0] == '7' or num[0] == '8' or num[0] == '9':
-    return num[0:5]
+    return num[0:4]
 
   if num.startswith('140'):
     return num.startswith('140')

@@ -30,12 +30,14 @@ empty = []
 for call in calls:
     if call[0] not in empty:
         empty.append(call[0])
+for call in calls:
     if call[1] in empty:
         empty.remove(call[1])
 
 for text in texts:
     if text[0] in empty:
         empty.remove(text[0])
+for text in texts:
     if text[1] in empty:
         empty.remove(text[1])
 
