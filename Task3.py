@@ -55,11 +55,13 @@ def checkAreacodes(num):
     fixedLine = num.split(')')[0].strip('()')
     return fixedLine
 
+  if num.find(' ') and num[0] == '7' or num[0] == '8' or num[0] == '9':
+    return num[0:5]
+
   if num.startswith('140'):
     return num.startswith('140')
   
-  if num.find(' ') and num[0] == '7' or num[0] == '8' or num[0] == '9':
-    return num[0:5]
+  
 
 """Keep track of local calls to Bangalore numbers and all other calls"""
 count_bangalore_calls = 0
