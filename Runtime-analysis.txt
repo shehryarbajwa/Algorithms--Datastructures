@@ -17,8 +17,8 @@ The run time for the for in loop is going to be O(n). Then each if loop will exe
 
 Task3:
 
-In checking for area codes, each if loop would be in constant time O(1). For iterating over the calls, that would be done in O(n) while each nested if loop would again run in constant time. The total run time for the algorithm would be O(m+n) which will reduce to O(n)
+In checking for area codes, each if loop would be in constant time O(1). For iterating over the calls, that would be done in O(n) while each nested if loop would again run in constant time. The sorting of the array would be done in O(nlogn). The total run time complexity is going to be O(nlogn)
 
 Task4:
 
-The run time for the for loop would be O(n) and for each nested if loop, it will be in constant time. The run time for the second for loop would be O(n). The total run time will be O(m + n) which will be reduced to just O(n)
+The run time for the for loop would be O(n) and for each nested if loop, it will be in constant time. The run time for the second for loop would be O(n). The sorting of the array would be done in O(nlogn). The total run time complexity is going to be O(nlogn)

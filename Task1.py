@@ -36,7 +36,7 @@ for text in texts:
 
     if text[i+1] not in different_list:
         different_list.append(text[i+1])
-        count = len(different_list)
+count = len(different_list)
 
 
 print("There are " + str(count) + ' different telephone numbers in the records.')
