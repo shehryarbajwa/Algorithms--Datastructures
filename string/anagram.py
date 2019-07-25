@@ -1,5 +1,6 @@
 """
 Algorithm for deciding whether two strings are anagrams
+
 """
 
 characters_a = []
@@ -29,3 +30,4 @@ def anagram_checker(str1, str2):
     
 
 print(anagram_checker('Time and tide wait for no man', 'Notified madman into water'))
+
