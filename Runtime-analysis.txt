@@ -15,8 +15,9 @@ The run time for the for in loop is going to be O(n). Then each if loop will exe
 
 Task3:
 
-In checking for area codes, each if loop would be in constant time O(1). For iterating over the calls, that would be done in O(n) while each nested if loop would again run in constant time. The sorting of the array would be done in O(nlogn). The total run time complexity is going to be O(nlogn)
+In iterating over each call in calls, it will be run in O(n). Then checking if number from Bangalore will be in constant time O(1), again checking area codes will be in constant time. Iterating over the areaCodesList will be done in O(n) while appending again will be done in constant time. The sorting method used by python is Timsort which will run in O(n log n). The total run time will be O(n * (1 + 1 + n) + n * log n) which will reduce to O(n^2) ignoring the constants and the n log n since n^2 will dominate the run time.
 
 Task4:
 
-The run time for the for loop would be O(n) and for each nested if loop, it will be in constant time. The run time for the second for loop would be O(n). The sorting of the array would be done in O(nlogn). The total run time complexity is going to be O(nlogn)
+Iterating over each call will be done in O(n) and the nested if loop will be done in O(n). Removing an element from the array will require iterating through the entire array and finding the element to remove and then removing it again having a run time of O(n). Sorting will be done in O(n * log n).
+O(n^2) will dominate and the total run time will be O(n^2)
