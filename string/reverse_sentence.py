@@ -9,4 +9,6 @@ def reverse_sentence(our_string):
     return " ".join(word_list)
 
 print(reverse_sentence('Hello World'))
-    
+
+string2 = 'Shehryar'
+print(string2[::-1])
