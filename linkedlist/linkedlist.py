@@ -20,3 +20,6 @@ def traverse_list():
         current_node = current_node.next
 
 traverse_list()
+
+def create_linked_list():
+        
