@@ -21,5 +21,21 @@ def traverse_list():
 
 traverse_list()
 
-def create_linked_list():
-        
+def create_linked_list(input_list):
+
+        head = None
+        tail = None
+
+        for value in input_list:
+                if head is None:
+                        head = Node(value)
+                        tail = head
+                        # print(head.value)
+                else:
+                        tail.next = Node(value)
+                        tail = tail.next
+                        print(tail.value)
+        return head
+
+create_linked_list([9,3,4,5])
+
