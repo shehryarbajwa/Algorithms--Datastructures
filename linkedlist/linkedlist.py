@@ -30,15 +30,15 @@ def create_linked_list(input_list):
         if head is None:
             head = Node(value)
             tail = head
-            print('The value of the head is : ' + f'{head.value}')
+            print('The value of the head node is : ' + f'{head.value}')
         else:
             tail.next = Node(value)
             tail = tail.next
-    print('The value of the tail is : ' + f'{tail.value}')
+    print('The value of the tail node is : ' + f'{tail.value}')
     return
 
 
-print(create_linked_list([1,3,4,5]))
+(create_linked_list([1,3,4,5,2,1,3,4,3,4,5,6,7,9,11,12,13,3,44,56,12,3,4,5,2,1,3,4,3,4,5,6,7,9,11,12,13,3,44,56, 13, 14, 12, 181,199999929193228939823892389, 38452979803425789234958789032457980234589073249857293804758902345789023478952389704597802345897239048579803245]))
 
 class singly_linked_list:
     def __init__(self):
