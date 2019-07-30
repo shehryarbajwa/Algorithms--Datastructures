@@ -16,14 +16,29 @@ def traverse_list():
     current_node = head
 
     while(current_node is not None):
-        print(current_node.value)
+        # print(current_node.value)
         current_node = current_node.next
 
 traverse_list()
 
+def create_linked_list(input_list):
+
+    head = None
+    tail = None
+
+    for value in input_list:
+        if head is None:
+            head = Node(value)
+            tail = head
+            print('The value of the head is : ' + f'{head.value}')
+        else:
+            tail.next = Node(value)
+            tail = tail.next
+    print('The value of the tail is : ' + f'{tail.value}')
+    return
 
 
-create_linked_list([9,3,4,5])
+print(create_linked_list([1,3,4,5]))
 
 class singly_linked_list:
     def __init__(self):
@@ -40,5 +55,5 @@ class singly_linked_list:
             node = node.next
         
         node.next = Node(value)
-        
+        return 
 
