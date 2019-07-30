@@ -54,5 +54,5 @@ class singly_linked_list:
             node = node.next
         
         node.next = Node(value)
-        return
+        
 
