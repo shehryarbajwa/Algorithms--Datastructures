@@ -20,6 +20,7 @@ def traverse_list():
         current_node = current_node.next
 
 traverse_list()
+print(traverse_list)
 
 def create_linked_list(input_list):
 
@@ -38,7 +39,7 @@ def create_linked_list(input_list):
     return
 
 
-(create_linked_list([1,3,4,5,2,1,3,4,3,4,5,6,7,9,11,12,13,3,44,56,12,3,4,5,2,1,3,4,3,4,5,6,7,9,11,12,13,3,44,56, 13, 14, 12, 181,199999929193228939823892389, 38452979803425789234958789032457980234589073249857293804758902345789023478952389704597802345897239048579803245]))
+(create_linked_list([1,3,4,5,2,1,3,4,3,4,5,6,7,9,11,12,13,3,44,56,12,3,4,5,2,1,3,4,3,4,5,6,7,9,11,12,13,3,44,56, 13, 14, 12, 181,199999929193228939823892389]))
 
 class singly_linked_list:
     def __init__(self):
@@ -47,13 +48,28 @@ class singly_linked_list:
     def append(self, value):
         if self.head is None:
             self.head = Node(value)
+            print('The value of head is : ' + f'{self.head.value}')
             return
         
         # Move to the tail (the last node)
         node = self.head
         while node.next:
             node = node.next
+            print('The value of node is : ' + f'{node.value}')
         
         node.next = Node(value)
+        print('The value of tail is : ' + f'{node.next.value}')
         return 
+
+linked_list = singly_linked_list()
+linked_list.append(1)
+linked_list.append(2)
+linked_list.append(3)
+# linked_list.append(4)
+# linked_list.append(6)
+
+node = linked_list.head
+while node:
+    print(node.value)
+    node = node.next
 
