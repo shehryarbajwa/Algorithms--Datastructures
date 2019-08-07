@@ -20,7 +20,7 @@ def traverse_list():
         current_node = current_node.next
 
 traverse_list()
-print(traverse_list)
+
 
 def create_linked_list(input_list):
 
@@ -64,7 +64,7 @@ class singly_linked_list:
 linked_list = singly_linked_list()
 linked_list.append(1)
 linked_list.append(2)
-linked_list.append(3)
+# linked_list.append(3)
 # linked_list.append(4)
 # linked_list.append(6)
 
