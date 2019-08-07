@@ -53,20 +53,33 @@ class singly_linked_list:
         
         # Move to the tail (the last node)
         node = self.head
-        while node.next:
+        while node.next is not None:
             node = node.next
             print('The value of node is : ' + f'{node.value}')
         
         node.next = Node(value)
         print('The value of tail is : ' + f'{node.next.value}')
         return 
+    
+    def convert_to_py_list(self):
+        py_list = []
+
+        node = self.head
+        while node is not None:
+            py_list.append(node)
+            node = node.next
+        
+        return node
+
 
 linked_list = singly_linked_list()
 linked_list.append(1)
 linked_list.append(2)
-# linked_list.append(3)
-# linked_list.append(4)
-# linked_list.append(6)
+linked_list.append(3)
+linked_list.append(4)
+linked_list.append(6)
+
+linked_list.convert_to_py_list()
 
 node = linked_list.head
 while node:
