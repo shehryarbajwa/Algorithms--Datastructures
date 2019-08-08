@@ -59,7 +59,6 @@ class singly_linked_list:
         
         node.next = Node(value)
         print('The value of tail is : ' + f'{node.next.value}')
-        print('The value of the node is ')
         return 
     
     def convert_to_py_list(self):
