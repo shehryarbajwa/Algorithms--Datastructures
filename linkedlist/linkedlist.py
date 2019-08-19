@@ -1,5 +1,5 @@
 """
-Linked List practice
+Linked List implementation
 """
 
 class Node:
