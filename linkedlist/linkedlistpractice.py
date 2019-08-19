@@ -13,8 +13,8 @@ class LinkedList:
         self.head = None
         self.tail = None
 
-    def prepend(self, value):
 # Prepend a node to the beginning of the list
+    def prepend(self, value):
     
         if self.head is None :
            self.head = Node(value)
@@ -24,9 +24,8 @@ class LinkedList:
         new_head.next = self.head
         self.head = new_head
 
-    def append(self, value):
 # Append an element to the list
-
+    def append(self, value):
         if self.head is None:
             self.head = Node(value)
             self.tail = self.head
@@ -39,7 +38,9 @@ class LinkedList:
             node = node.next
 
         node.next = Node(value)
+
 # Search a node within a list
+
     def search(self, value):
 
         if self.head is None:
@@ -77,7 +78,7 @@ class LinkedList:
 
         raise ValueError('Value not found in the list')
 
-# Remove the first element of the linkedList and return the value
+# Pop, which means to return the first node's value and delete the node from the list
 
     def pop(self):
 
@@ -88,11 +89,37 @@ class LinkedList:
         self.head = self.head.next
         return node.value
 
+# Insert a node with a value at the position provided
+
+    def insert(self,value,position):
+
+        if position == 0:
+            self.prepend(value)
+            return
+        
+        index = 0
+        node = self.head
+
+        while node.next and position <= index:
+
+            if (position - 1) == index:
+                new_node = Node(value)
+                new_node.next = node.next
+                node.next = new_node
+                return
+            index += 1
+            node = node.next
+
+        else:
+            self.append(value)
+
+
+
+
+
 linked_list = LinkedList()
 linked_list.prepend(3)
 linked_list.append(4)
 linked_list.append(6)
 linked_list.remove(4)
 
-for obj in linked_list:
-    print(obj.value)
