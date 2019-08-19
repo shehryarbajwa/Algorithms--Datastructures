@@ -126,6 +126,17 @@ def size(self):
     
     return size
 
+# Convert linkedlist to python list
+
+def to_list(self):
+    out = []
+    node = self.head
+
+    while node:
+        out.append(node.value)
+        node = node.next
+    
+    return out
 
 
 linked_list = LinkedList()
