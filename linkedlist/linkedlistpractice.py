@@ -77,6 +77,16 @@ class LinkedList:
 
         raise ValueError('Value not found in the list')
 
+# Remove the first element of the linkedList and return the value
+
+    def pop(self):
+
+        if self.head is None:
+            return None
+        
+        node = self.head
+        self.head = self.head.next
+        return node.value
 
 linked_list = LinkedList()
 linked_list.prepend(3)
