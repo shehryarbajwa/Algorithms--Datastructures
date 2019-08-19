@@ -113,7 +113,18 @@ class LinkedList:
         else:
             self.append(value)
 
+# Return the size of the linked list
 
+def size(self):
+
+    size = 0
+    node = self.head
+
+    while node:
+        size += 1
+        node = node.next
+    
+    return size
 
 
 
