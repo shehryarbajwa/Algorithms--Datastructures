@@ -30,6 +30,7 @@ class Solution(object):
             else:
             #If the length of the list is greater than 1 and the input digit is 9
             #We provide a new array to our function with the last number excluded and add 0 to the input numbers at the end
+            #When we run the function plusOne on itself, it removes the last digit and adds 0 instead of the last digit to our input_string and runs the if else loop again
                 input_numbers = self.plusOne(input_numbers[:-1]) + [0]
         return input_numbers
 test = Solution()
