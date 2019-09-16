@@ -43,3 +43,11 @@ class Stack:
         self.head = self.head.next
         self.num_elements -= 1
         return value
+
+#The time complexity of a stack in a linked list has push in O(1) time and pop in O(1) time since we
+#dont have to traverse the list. We can just push to the top and remove from the top.
+
+#That happened because, with an array, we had to specify some initial size (in other words, we had to set aside a contiguous block of memory in advance). 
+#But with a linked list, the nodes do not need to be contiguous. They can be scattered in different locations of memory, an that works just fine. 
+#This means that with a linked list, we can simply append as many nodes as we like. 
+#Using that as the underlying data structure for our stack means that we never run out of capacity, so pushing and popping items will always have a time complexity of O(1).
