@@ -83,10 +83,17 @@ class Stack:
 
     
 def reverse_queue(queue):
+    #We can reverse a queue using a stack
     stack = Stack()
 
+    #First we have to empty out all the elements of the queue e.g queue is 2 -> 3 -> 4    2 at bottom, 4 at top
+    # Each element from the queue starting with 2 will be pushed to an emtpy stack 
+    #The stack will have its first element at 2, then it will push on top of it 2 -> 3 -> 4
     while not queue.is_empty():
         stack.push(queue.dequeue())
 
+    #Now we will iterate over the stack. Since in stack we can find the head node, by using pop, we can remove it
+    # So we will remove items from the stack starting with 4 then 3 then 2 and add it to the queue
+    # Now the queue has 4 -> 3 -> 2
     while not stack.is_empty():
         queue.enqueue(stack.pop())
