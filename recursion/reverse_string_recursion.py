@@ -77,6 +77,9 @@ def reverse_string(input_string):
 
 # Therefore our final string becomes ccbbaa
 
+# Therefore what we are doing is solving a smaller string first , then merging that answer with the final picture
+# Think of it as solving one huge hairy equation but instead solving smaller instances of that equation to finally add up to the final answer
+
 
 print(reverse_string('aabbcc'))
 print(reverse_string('abcdefgh'))
