@@ -43,21 +43,36 @@ def all_codes(number):
         output_100 = all_codes(number // 100)
         alphabet = get_alphabet(remainder)
         
+        
+        
         for index, element in enumerate(output_100):
+            
             output_100[index] = element + alphabet
+            
     
     # calculation for right-most digit e.g. if number = 1123, this calculation is meant for 3
     remainder = number % 10
+    
     
     # get all codes for the remaining number
     output_10 = all_codes(number // 10)
     alphabet = get_alphabet(remainder)
     
+    
+    #In the final step, at this stage, the output being received for output_10 is [n, ad]
+    #
     for index, element in enumerate(output_10):
+        
         output_10[index] = element + alphabet
         
     output = list()
     output.extend(output_100)
     output.extend(output_10)
+    print(output)
+    
+    
+    
     
     return output
+
+print(all_codes(143))
