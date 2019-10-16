@@ -159,7 +159,43 @@ def pre_order(tree):
 
     return visited_list
 
+## Using recursion to solve the problem
 
+def pre_order_tree(Tree):
+
+    visit_order = list()
+    root = Tree.get_root()
+
+    def traverse(node):
+        if node:
+        #Visit the element
+            visit_order.append(node.get_value())
+
+            #Traverse left
+            traverse(node.get_left_child())
+
+            #Traverse right
+            traverse(node.get_right_child())
+
+    traverse(root)
+
+    return visit_order
+
+
+# In pre_order_tree we start with Apples, left child Banana, left child Dates, and Apple's right child Cherry
+
+# The root is apple
+# We use apple and run the traverse function
+# In our visit_order list we append Apple
+# Then we do recursion
+# We then recurse
+# At a time we first run the traverse(left_child function) and once it finishes run the traverse(right_child) function
+# So we provide traverse with the left child which is Banana
+# It runs the function and appends Banana to the list
+# It then runs Dates function
+# Meanwhile when dates finishes, Banana checks for a right child
+# If it is none the function finishes
+# All this keeps happening while Apple checks for the right node aswell
 
 
 
@@ -185,6 +221,7 @@ tree.get_root().set_left_child(Node("banana"))
 tree.get_root().set_right_child(Node("cherry"))
 tree.get_root().get_left_child().set_left_child(Node("dates"))
 
-tree_pre_order = Tree(Node3)
 
-(pre_order(tree))
+# (pre_order(tree))
+
+print(pre_order_tree(tree))
