@@ -74,17 +74,18 @@ def breadth_first_search(tree):
         #Node's value is Apple
         #Visit_order now represents Apple and since Apple is visited we can remove it from the queue
         visit_order.append(node)
+        conv_to_node = Node(node)
 
         #Next we check whether apple has a left child
         #We add Banana to the queue
         # Now the queue is (["Banana"])
-        if node.has_left_child():
-            q.enqueue(node.get_left_child())
+        if conv_to_node.has_left_child():
+            q.enqueue(conv_to_node.get_left_child())
         #We check whether root i.e Apple has a right child
         #We add Cherry to the queue
         #Queue is (["Cherry", "Banana"])
-        if node.has_right_child():
-            q.enqueue(node.get_right_child())
+        if conv_to_node.has_right_child():
+            q.enqueue(conv_to_node.get_right_child())
 
         #Since q's length is now 2 we run the while loop again
         #In the next iteration, we get the node value now which is "Banana"
@@ -107,5 +108,12 @@ def breadth_first_search(tree):
 
         return visit_order
         
-breadth_first_search(tree)
+
+
+tree = Tree("apple")
+tree.get_root().set_left_child(Node("banana"))
+tree.get_root().set_right_child(Node("cherry"))
+tree.get_root().get_left_child().set_left_child(Node("dates"))
+
+print(breadth_first_search(tree))
 
