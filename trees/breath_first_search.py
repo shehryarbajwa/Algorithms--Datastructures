@@ -62,7 +62,7 @@ def breadth_first_search(tree):
     #Get the root value of the Tree which is Apple
     node = tree.get_root()
     #Add the root to the queue. It now has q = (["Apple"])
-    q.enqueue(node.get_value())
+    q.enqueue(node)
 
     #Check while the queue is not empty. When it is empty, it means all elements have been visited
     
@@ -71,21 +71,22 @@ def breadth_first_search(tree):
         #Remember in a queue we remove the last in first out
         #So we start with apple and we want to remove Apple now
         node = q.dequeue()
+        print(node)
         #Node's value is Apple
         #Visit_order now represents Apple and since Apple is visited we can remove it from the queue
         visit_order.append(node)
-        conv_to_node = Node(node)
+        
 
         #Next we check whether apple has a left child
         #We add Banana to the queue
         # Now the queue is (["Banana"])
-        if conv_to_node.has_left_child():
-            q.enqueue(conv_to_node.get_left_child())
+        if node.has_left_child():
+            q.enqueue(node.get_left_child())
         #We check whether root i.e Apple has a right child
         #We add Cherry to the queue
         #Queue is (["Cherry", "Banana"])
-        if conv_to_node.has_right_child():
-            q.enqueue(conv_to_node.get_right_child())
+        if node.has_right_child():
+            q.enqueue(node.get_right_child())
 
         #Since q's length is now 2 we run the while loop again
         #In the next iteration, we get the node value now which is "Banana"
@@ -106,7 +107,7 @@ def breadth_first_search(tree):
         #Visit order becomes ["Apple", "Banana", "Cherry", "Dates"]
         #Since Dates has no left or right child we continue and now the while loop is finished
 
-        return visit_order
+    return visit_order
         
 
 
