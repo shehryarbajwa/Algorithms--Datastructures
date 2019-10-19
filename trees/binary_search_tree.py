@@ -108,6 +108,45 @@ class Tree(object):
                     node.set_right_child(new_node)
                     break #inserted node, stop looping
 
+        #For insertion with recursion, imagine original tree being root 5 left child 4, right child 6
+        #We start with new_value to be 2
+        # 1- self.insert_recursively(5, 2)
+        # 2- comparison leads to -1
+        # 3- We realize node_has_left_child of 4
+        # 4-    Now we run self.insert_recursively again with values (4, 2)
+        # 5-    Comparison is -1 again
+        # 6-    Since no left child, we set left_child(2)
+        # 7- We come back to original function since we are executing only if else logic, our loop ends
+        # 8- Function is finished
+        def insertion_with_recursion(self, new_value):
+
+            if self.root.get_root() == None:
+                self.set_root(new_value)
+                return
+            
+            self.insert_recursively(self.get_root(), Node(new_value))
+
+        def insert_recursively(self, node, new_node):
+            comparison = self.compare(node, new_node)
+
+            if comparison == 0:
+                #Override the root node
+                node.set_value(new_node.get_value())
+
+            elif comparison == -1:
+                if node.has_left_child():
+                    self.insert_recursively(node.get_left_child(), new_node)
+                else:
+                    node.set_left_child(new_node)
+            else:
+                if node.has_right_child():
+                    self.insert_recursively(node.get_right_child(), new_node)
+                else:
+                    node.set_right_child(new_node)
+
+
+
+
 
 
 
