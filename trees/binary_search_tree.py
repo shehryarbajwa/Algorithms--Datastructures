@@ -144,6 +144,33 @@ class Tree(object):
             else:
                 node.set_right_child(new_node)
 
+    def search(self, value):
+        node = self.get_root()
+        s_node = Node(value)
+
+        while (True):
+            comparison = self.compare(node, s_node)
+            if comparison == 0:
+                return True
+            elif comparison == -1:
+                #We then check if the node has a left child
+                #If there is we get the value of the left child and assign it to Node
+                #Once we assign it to Node, we can then keep continuing with the loop
+                #Since it is a while loop, it will only exit when comparison is 1 or -1 and the node has no more left or right children
+                #Once we hit that we will return False and exit the loop
+                if node.has_left_child():
+                    node = node.get_left_child()
+                else:
+                    return False
+            else:
+                if node.has_right_child():
+                    node = node.get_right_child()
+                else:
+                    return False
+
+        
+
+
 
 tree_numbers = Tree(5)
 print(tree_numbers)
