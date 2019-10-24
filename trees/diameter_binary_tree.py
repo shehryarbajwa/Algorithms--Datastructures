@@ -10,7 +10,6 @@
     #    / \     
     #   4   5  
 
-from queue import Queue
 
 class BinaryTreeNode:
 
@@ -19,87 +18,133 @@ class BinaryTreeNode:
         self.right = None
         self.data = data
 
+from queue import Queue
+
+#We can convert our array to a binary tree
+#The array we have is [1, 2, 3, 4, 5, None, None, None, None, None, None]
+
+
 
 def convert_arr_to_binary_tree(arr):
-    #The above example would be represented by [1,2,3,4,5,None,None,None,None,None,None]
+    """
+    Takes arr representing level-order traversal of Binary Tree 
+    """
 
+    #Start at index 0
     index = 0
     length = len(arr)
-
+    
     if length <= 0 or arr[0] == -1:
         return None
 
-    
-    #Root becomes arr[0] -> 1
-    #We increment the index by 1
-    #We create an empty queue
-    #Remember queue is FIFO
-    #We add root to the queue
-    #Queue is now 1
-
+    #Get the root which is a node at arr index 0
     root = BinaryTreeNode(arr[index])
+    #increment index by 1
     index += 1
+    #Create a queue
     queue = Queue()
+    #Add an element to the queue
     queue.put(root)
-
-    # First iteration of while loop done
-    # Queue is now 2,3
-    # In the second iteration, since 2 was added first, we start with 2 and get current_node
-    # Once we get current_node we then get the left child of the current_node
-    # 
+    #In 1st iteration, queue has 1 as its only element
 
 
-    #While the queue is not empty, which means as long as queue has items in it
-    #While queue has items in it, keep running the loop
+    #Since queue has 2 elements 2 and 3
+    #We will continue while loop again with 2nd iteration
+    
+    
+
+    #While the queue is not empty, keep running the while loop
     while not queue.empty():
-        #Queue.get will return the item from the queue
-        #That is how we get current_node
-        # Current node becomes 1
+        #Queue is FIFO, so we current node becomes 1
+        
+        #2nd iteration current_node becomes 2
+        #Queue now only has 1 element which is 3
         current_node = queue.get()
-        print(queue.get())
-        #Left child becomes arr[1] -> 2
-        ## In the second it, left_child becomes 
+        #Left child is arr[1] -> 2
+
+        #2nd iteration left child becomes arr[3] -> 4
         left_child = arr[index]
+        #Increment the index
+        
+        #Second iteration, incremenet index by 1, now index is 4
         index += 1
-
+        
+        #If the left child is not None
         if left_child is not None:
-            #  Since left child is None, we traverse
-            #  Left_node becomes a new node with the value of the left child which is 2
-            #  Current node is 1 and its left pointer now leads to left_node which is 2
-            #  We add left_node to queue
-            #  Queue becomes 2
+            #Left node becomes BinaryTreeNode
 
+            #Left node becomes new node
             left_node = BinaryTreeNode(left_child)
+            #Current node's left pointer now leads to the left node which is 2 so 1 has left node of 2
             current_node.left = left_node
+            #Add 2 to queue. Queueu is 2 now
             queue.put(left_node)
-
-        #Right child is arr[2] -> 3
+        
+        #We then search for right_child which is arr[2] -> 3
+        #Increment index by 1
         right_child = arr[index]
-        #index is now 3
         index += 1
 
+        #If right child is not None
+        
         if right_child is not None:
-            #Since right child is a value, we traverse
-            #We create a right_node with __init__ providing data as rightChild which is 3
-            #Then we create the right pointer for the current node which is 1 so it leads to 3
-            #We then add this to the queue
-            #Queue becomes [2,3]
+            #Create a right node
             right_node = BinaryTreeNode(right_child)
+            #Current node's right pointer is 3 now 1 has left node of 2 and right node of 3
             current_node.right = right_node
+            #Add 3 to queue
             queue.put(right_node)
     return root
 
-def diameter_of_a_binary_tree(root):
-    return diameter_of_a_binary_tree_func(root)[1]
 
-def diameter_of_a_binary_tree_func(root):
+def diameter_of_binary_tree(root):
+    return diameter_of_binary_tree_func(root)[1]
+
+def diameter_of_binary_tree_func(root):
+    #For example, our tree is 1 left node 2 and right node 3
+    #Arr = [1,2,3]
+
+    #We start with the root, which is 1
+    #We calculate left_height,left_diameter which will run as follows
+
+    #   first function is diameter_of_binary_tree_func(1)
+    #   1.left    diameter_of_binary_tree_func(2)
+    #   2.left      diameter_of_binary_tree_func(None) -> returns 0,0
+    #             Going one step back, we get diameter_of_binary_tree_func(2)
+    #             We iterate, right_height is None, so right_height, right_diameter is 0,0
+    #             current_height becomes max(0,0) + 1 -> 1
+    #             height diameter becomes 0 + 0 - > 0
+    #             current_diameter becomes max(0, 0, 0) -> 0
+    #             We return diameter_of_binary_tree_func(2) as 1,0
+    #   Now back to diameter_of_binary_tree_func(1)
+    #   left_height, left_diameter is 1,0
+    #   right_height,right_diameter we run diameter_of_binary_tree_func(3)
+    #       diameter_of_binary_tree_func(3) -> left_height is 0,0
+    #       right_height, right_diameter becomes diameter_of_binary_tree_func(5)
+    #           diameter_of_binary_tree_func(5) -> returns 
+    #           diameter_of_binary_tree_func(5)
+    #               right_height, right_dia returns 0,0
+    #               current_height becomes max(0,0) + 1
+    #               height diameter becomes 0
+    #               current_diameter becomes max()
+    
+    #   We recurse back to diameter_of_binary_tree_func(3)
+    #   3's left height, left diameter is 0,0
+    #   3's right_height, right_diameter is 0,0
+    #   
 
     if root is None:
         return 0,0
 
-    left_height, left_diameter = diameter_of_a_binary_tree_func(root.left)
-    right_height, right_diameter = diameter_of_a_binary_tree_func(root.right)
+    left_height, left_diameter = diameter_of_binary_tree_func(root.left)
+    #Recursively, in the first attempt, it goes down to 0,0
+    right_height, right_diameter = diameter_of_binary_tree_func(root.right)
+    #Recursively, in the first attempt, it goes down to 0,0
 
+    #Current height becomes max(0,0) + 1 -> 1
+    #height diameter = 0 + 0 -> 0
+    #Current_diameter = max(0,0,0) -> 0
+    #In the first recursion we return 1, 0
     current_height = max(left_height, right_height) + 1
     height_diameter = left_height + right_height
     current_diameter = max(left_diameter, right_diameter, height_diameter)
@@ -108,6 +153,8 @@ def diameter_of_a_binary_tree_func(root):
 
 
 
+    
+arr = [1, 2, 3, None, None, None, None]
+root = convert_arr_to_binary_tree(arr)
 
-
-
+print(diameter_of_binary_tree(root))
