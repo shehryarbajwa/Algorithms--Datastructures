@@ -5,10 +5,6 @@ class LinkedListNode:
         self.value = value
         self.next = None
 
-    
-
-
-
 class HashMap:
 
     def __init__(self, initial_size=10):
@@ -35,15 +31,23 @@ class HashMap:
             #
             head = head.next
 
+        #If head is None, then we get the head node
+        #New_node.next becomes head
         #
         head = self.bucket_array[bucket_index]
-        new_node.next = head
+        
         self.bucket_array[bucket_index] = new_node
         self.num_elements += 1
 
     
     def get(self, key):
-        pass
+        bucket_index = self.compressed_hash_code(key)
+        head = self.bucket_array[bucket_index]
+        while head is not None:
+            if head.key == key:
+                return head.value
+            head = head.next
+        return None
     
     def size(self):
         return self.num_elements
@@ -51,20 +55,20 @@ class HashMap:
     #Bucket index refers to the index at which we are going to store the value of the key element
     #abc will be stored at 3
     def get_bucket_index(self, key):
-        return self.get_hash_code(key)
+        return self.compressed_hash_code(key)
 
-    def get_hash_code(self, key):
-        key = str(key)
-        num_buckets = len(self.bucket_array)
-        current_coefficient = 1
-        hash_code = 0
+    # def get_hash_code(self, key):
+    #     key = str(key)
+    #     num_buckets = len(self.bucket_array)
+    #     current_coefficient = 1
+    #     hash_code = 0
 
-        for character in key:
-            hash_code += ord(character) * current_coefficient
-            current_coefficient = current_coefficient * self.p
-            current_coefficient = current_coefficient
+    #     for character in key:
+    #         hash_code += ord(character) * current_coefficient
+    #         current_coefficient = current_coefficient * self.p
+    #         current_coefficient = current_coefficient
         
-        return hash_code
+    #     return hash_code
 
     def compressed_hash_code(self,key):
         key = str(key)
@@ -100,7 +104,24 @@ print(bucket_indexs)
 print(bucket_indexes)
 print(bucket_indexes1)
 
+hash_map = HashMap()
 
+hash_map.put("one", 1)
+hash_map.put("two", 2)
+hash_map.put("three", 3)
+hash_map.put("neo", 11)
+hash_map.put("one.", 1)
+hash_map.put("one..", 1)
+
+print("size: {}".format(hash_map.size()))
+
+
+print("one: {}".format(hash_map.get("one")))
+print("one.: {}".format(hash_map.get("one.")))
+print("one..: {}".format(hash_map.get("one..")))
+print("neo: {}".format(hash_map.get("neo")))
+print("three: {}".format(hash_map.get("three")))
+print("size: {}".format(hash_map.size()))
 
 # For starters, it will return the same value for abcd and bcda. 
 # Do we want that? We can create 24 different permutations for the string abcd and each will have the same value. 
