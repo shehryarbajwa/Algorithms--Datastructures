@@ -3,6 +3,8 @@
 
 
 #### SO WHAT ARE WE DOING ####
+
+
 #   We create an empty dictionary that will map elements(key) to their index in input_list(value)
 #   This is doing the reverse of a usual dictionary where index maps to values
 #   Here values map to index for an array
@@ -10,6 +12,7 @@
 #   We will then map the element of the input_list to its index in input_dict
 #   input_dict[element] = index
 #   While we are enumerating
+
 #   If we find target - element , 5 - 2 = 3 exists in input_dict[key]
 #   Since 3 is included in input_dict after 2 and has a value of 2
 #   We will return index_dict[target - element] = 2, index we are iterating over 1
