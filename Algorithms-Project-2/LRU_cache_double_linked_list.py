@@ -32,15 +32,24 @@ class LRUCache:
             return n.value
         return -1
 
+    #In set, we create a Node with key and value
+    #We add that node and bring it to the front of the cache
+    #We assign it to the dictionary with the key and its value
+    #if the key already exists, we remove the key 
+    #And then create a new Node and add it
+    #That way we bring it to the front of the cache
     def set(self, key, value):
         if key in self.dictionary:
-            self._remove(self.dictionary[value])
+            self._remove(self.dictionary[key])
         n = Node(key, value)
         self._add(n)
         self.dictionary[key] = n
 
+        #If the length of the dictionary becomes greater than the capacity
+        #Then we find the 
         if len(self.dictionary) > self.capacity:
             n = self.head.next
+            print(n.value)
             self._remove(n)
             del self.dictionary[n.key]
     
@@ -72,3 +81,14 @@ class LRUCache:
         self.tail.previous = node
         node.previous = previous
         node.next = self.tail
+
+our_cache = LRUCache(5)
+
+our_cache.set(2,2)
+our_cache.set(3,3)
+our_cache.set(4,4)
+our_cache.set(5,5)
+our_cache.set(6,6)
+our_cache.set(9,5)
+print(our_cache.get(9))
+print(our_cache.get(1))
