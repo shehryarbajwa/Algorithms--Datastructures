@@ -100,7 +100,7 @@ def huffman_decoding(data, tree):
     text, next_index = decode_next( data, 0, tree )
     #next_index returns the 
     print('len of next index is ' + str(next_index))
-    print(next_index)
+    
     while next_index < len(data):
         next_char, next_index = decode_next( data, next_index, tree )
         text += next_char
