@@ -53,11 +53,20 @@ sub_child_child.add_user(sub_child_child_user)
 
 ##Tests
 print( is_user_in_group( "Bob", parent ) )
+#True
 print( is_user_in_group( "Thomas", parent ) )
+#True
 print( is_user_in_group( "Richard", parent ) )
+#True
 print( is_user_in_group( "Sophia", parent ) )
+#True
 print( is_user_in_group( "Richard", sub_child_child ) )
+#False
 print( is_user_in_group( "Thomas", sub_child ) )
+#False
 print( is_user_in_group( "Thomas", sub_child_child ) )
+#False
 print( is_user_in_group( "Bob", sub_child_child ) )
+#False
 print( is_user_in_group( "Richard", sub_child_child ) )
+#False

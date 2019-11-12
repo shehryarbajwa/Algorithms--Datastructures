@@ -98,11 +98,13 @@ def test_encoding(text):
 
 
 ####Test Cases
-
+#Test case 1
 print( test_encoding("ABBBBABBABABBBAABABABAABABA") )
 
+#Test case 2
 print( test_encoding("EXAMPLE") )
 
+#Test case 3
 print( test_encoding("BABAAABBAEIOULMNOP") )
 
         

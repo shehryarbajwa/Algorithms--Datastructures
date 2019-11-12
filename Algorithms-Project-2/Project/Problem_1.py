@@ -52,16 +52,33 @@ class LRUCache:
         node.next = self.tail
 
 #Test cases
-our_cache = LRUCache(5)
+new_cache = LRUCache(5)
 
-our_cache.set(1,1)
-our_cache.set(2,1)
-our_cache.set(3,1)
-our_cache.set(4,1)
-our_cache.set(5,1)
+new_cache.set(1,1)
+new_cache.set(2,1)
+new_cache.set(3,1)
+new_cache.set(4,1)
+new_cache.set(5,1)
 
-print(our_cache.get(5))
-print(our_cache.get(4))
-print(our_cache.get(3))
-print(our_cache.get(2))
-print(our_cache.get(6))
+print(new_cache.get(4))
+#Answer is 1
+#Test case 2
+
+cache_2 = LRUCache(4)
+cache_2.set(1,2)
+cache_2.set(2,2)
+cache_2.set(3,2)
+cache_2.set(4,2)
+
+print(cache_2.get(4))
+#Answer is 2
+#Test case 3
+cache_3 = LRUCache(6)
+cache_3.set(1,5)
+cache_3.set(2,6)
+cache_3.set(3,7)
+cache_3.set(4,8)
+
+print(cache_3.get(4))
+#Answer is 8
+
