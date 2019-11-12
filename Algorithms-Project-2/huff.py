@@ -8,7 +8,10 @@ class HuffNode(object):
         self.right = None
 
     def is_leaf(self):
-        return not (self.left or self.right)
+        if (self.right or self.left) is None:
+            return True
+        else:
+            return False
 
 
 def create_frequency_list(data):
@@ -74,7 +77,7 @@ def decode_next(data, index, tree):
     assert(tree)
     assert(len(data) > 0)
     if tree.is_leaf():
-        print(tree.char)
+        print('tree.char is ' + tree.char + ' ' + str(index))
         return tree.char, index
     if data[index] == '0':
         return decode_next( data, index + 1, tree.left )
@@ -94,13 +97,14 @@ def huffman_encoding(text):
     return data, huff_tree
 
 
+#So what are we doing in huffman decoding? 
 def huffman_decoding(data, tree):
     assert(data)
     assert(tree)
     text, next_index = decode_next( data, 0, tree )
     #next_index returns the 
-    print('len of next index is ' + str(next_index))
-    
+    print(next_index)
+    print(text)
     while next_index < len(data):
         next_char, next_index = decode_next( data, next_index, tree )
         text += next_char
@@ -120,7 +124,7 @@ def test_encoding(text):
     
     return decoded_data == text
 
-print( test_encoding("EXAMPLE") )
+print( test_encoding("ABBBBABBABABBBAABABABAABABA") )
 #Original Text:     ABBBBABBABABBBAABABABAABABA
 #Size:              76
 #Huffman Encoding:  011110110101110010101001010

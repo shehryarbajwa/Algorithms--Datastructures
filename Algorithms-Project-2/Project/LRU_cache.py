@@ -51,6 +51,7 @@ class LRUCache:
         node.previous = previous
         node.next = self.tail
 
+#Test cases
 our_cache = LRUCache(5)
 
 our_cache.set(1,1)
@@ -60,3 +61,7 @@ our_cache.set(4,1)
 our_cache.set(5,1)
 
 print(our_cache.get(5))
+print(our_cache.get(4))
+print(our_cache.get(3))
+print(our_cache.get(2))
+print(our_cache.get(6))

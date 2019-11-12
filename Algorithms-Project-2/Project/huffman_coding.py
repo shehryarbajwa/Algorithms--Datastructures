@@ -101,5 +101,8 @@ def test_encoding(text):
 
 print( test_encoding("ABBBBABBABABBBAABABABAABABA") )
 
+print( test_encoding("EXAMPLE") )
+
+print( test_encoding("BABAAABBAEIOULMNOP") )
 
         

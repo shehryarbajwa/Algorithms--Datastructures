@@ -108,6 +108,16 @@ def trim_huff_tree(tree, code):
     huff_map.update(trim_huff_tree(tree.right, code + '1'))
     return huff_map
 
+#In decode_next, we receive the the data form huffman decoding which is a string of 110001101010110011
+#Index provided is 0
+#We start from tree which is the result of huffman_coding which is the parent node
+#Data is 1100101
+#data[0] = 1
+#Tree is parent node
+#If the tree is leaf, then return tree.character and the index
+#If the data[index] == 0, then we increment index by 1 and look to the tree's left
+#If the data[index] == 1, then we incremennt index by 
+
 
 def decode_next(data, index, tree):
     assert(tree)
@@ -135,6 +145,11 @@ def huffman_encoding(text):
 def huffman_decoding(data, tree):
     #next_index returns the string E,X,A,M,P,L,E
     #while next_index < len(data) which is true since next_index has length of 
+    #Data here is encoded text 0010021100210
+    #We start at 0
+    #Tree is parent node
+    #Tree is in node form
+    #
     text, next_index = decode_next( data, 0, tree )
     print('len of next index is ' + next_index)
     while next_index < len(data):
