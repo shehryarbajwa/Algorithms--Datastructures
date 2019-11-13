@@ -68,13 +68,13 @@ def decode_next_element(data, index, tree):
         return decode_next_element(data, index + 1, tree.right)
 
 def encode_tree(text):
-    huff_tree = build_huff_tree(text)
-    huff_map = assign_code_huff_tree(huff_tree, '')
+    huff_tree = build_huff_tree( text )
+    huff_map = assign_code_huff_tree( huff_tree, '' )
     data = ''
-
-    for char in huff_map:
+    for char in text:
         data += huff_map[char]
     return data, huff_tree
+
 
 def decode_tree(data, tree):
     text, next_index = decode_next_element(data, 0, tree)
@@ -100,11 +100,25 @@ def test_encoding(text):
 ####Test Cases
 #Test case 1
 print( test_encoding("ABBBBABBABABBBAABABABAABABA") )
-
+# Original Text:           ABBBBABBABABBBAABABABAABABA
+# Size:                    76
+# Huffman Encoding:        011110110101110010101001010
+# Size:                    28
+# Decoded Text:            ABBBBABBABABBBAABABABAABABA
+# Size:                    76
 #Test case 2
 print( test_encoding("EXAMPLE") )
-
+# Original Text:           EXAMPLE
+# Size:                    56
+# Huffman Encoding:        110001101010110011
+# Size:                    28
+# Decoded Text:            EXAMPLE
 #Test case 3
 print( test_encoding("BABAAABBAEIOULMNOP") )
-
+# Original Text:           BABAAABBAEIOULMNOP
+# Size:                    67
+# Huffman Encoding:        011101111111010111101010111100101100001000000111000010
+# Size:                    32
+# Decoded Text:            BABAAABBAEIOULMNOP
+# Size:                    67
         
