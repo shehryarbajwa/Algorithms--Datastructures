@@ -41,6 +41,7 @@ class LinkedList:
         output = []
         node = self.head
 
+        #Node search will be O(n)
         while node:
             output.append(node.value)
             node = node.next

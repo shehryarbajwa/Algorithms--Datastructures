@@ -2,8 +2,10 @@
 
 ### Explanation
 
-I use a python list to build out the Block object. All operations are done on the py list
+We will transform the linkedlist from a linkedlist to a python list. After creating a python list, we will create a mathematical set to hold the values from both lists and merge them together.
 
 ### Efficiency
 
-All methods operated on the list will be done in O(1) time. This includes add, get block and size
+Appending to a list will take O(1) time. In addition, node search will be in O(n) time. When we do the union of the two linked lists, we will convert the linkedlist 1 and linkedlist 2 to a python list and then iterate over the newly created list with the sets and add values to it. Insertion in array will take O(n) time.
+
+When we create the intersection, we create two lists from each linkedlist. Then we iterate over one set and check for that element in set 2. If it is present in both then we append it to the newly created intersection list. Iterating over both sets and appending to the intersection list each element will take O(n^2) time

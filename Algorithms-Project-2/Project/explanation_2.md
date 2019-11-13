@@ -6,4 +6,4 @@ I will be using a list to append to all the files that are found with the given 
 
 ### Efficiency
 
-Append has the time complexity of O(1) while Append has the time complexity of O(k)
+Append has the time complexity of O(1) while Extend has the time complexity of O(k).
