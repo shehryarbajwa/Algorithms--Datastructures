@@ -11,6 +11,7 @@ class LRUCache:
 
     def __init__(self, capacity):
         self.capactiy = capacity
+        
         self.dictionary = dict()
         self.head = Node(0,0)
         self.tail = Node(0,0)
@@ -18,6 +19,8 @@ class LRUCache:
         self.tail.previous = self.head
 
     def get(self, key):
+        if self.capactiy == 0:
+            return 'Cannot perform function on 0 capacity cache'
         if key in self.dictionary:
             n = self.dictionary[key]
             self._remove(n)
@@ -26,11 +29,11 @@ class LRUCache:
         return -1
 
     def set(self, key, value):
+        
         if key in self.dictionary:
             self._remove(self.dictionary[key])
         n = Node(key, value)
         self._add(n)
-        self._remove(n)
         self.dictionary[key] = n
 
         if len(self.dictionary) > self.capactiy:
@@ -55,28 +58,24 @@ class LRUCache:
 new_cache = LRUCache(5)
 
 new_cache.set(1,1)
-new_cache.set(2,1)
-new_cache.set(3,1)
+new_cache.set(2,2)
+new_cache.set(1,10)
 new_cache.set(4,1)
 new_cache.set(5,1)
 
-print(new_cache.get(4))
-#Answer is 1
+print(new_cache.get(1))
+#Returns 10
+print(new_cache.get(2))
+#Returns 2
 #Test case 2
 
-cache_2 = LRUCache(4)
-cache_2.set(1,2)
-cache_2.set(2,2)
-cache_2.set(3,2)
-cache_2.set(4,2)
+our_cache = LRUCache(0)
+our_cache.set(1, 1)
 
-print(cache_2.get(4))
-#Answer is 2
+print(our_cache.get(4))
+#Answer is Cannot perform function on 0 capacity cache
 #Test case 3
 cache_3 = LRUCache(6)
-cache_3.set(1,5)
-cache_3.set(2,6)
-cache_3.set(3,7)
 cache_3.set(4,8)
 
 print(cache_3.get(4))
