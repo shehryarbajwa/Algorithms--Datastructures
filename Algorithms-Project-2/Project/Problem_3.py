@@ -60,6 +60,7 @@ def assign_code_huff_tree(tree, code):
     return huff_map
 
 def decode_next_element(data, index, tree):
+    
     if tree.is_tree_leaf():
         return tree.char, index
     if data[index] == '0':
@@ -68,6 +69,9 @@ def decode_next_element(data, index, tree):
         return decode_next_element(data, index + 1, tree.right)
 
 def encode_tree(text):
+    if text is None:
+        return 'No data to encode!'
+    
     huff_tree = build_huff_tree( text )
     huff_map = assign_code_huff_tree( huff_tree, '' )
     data = ''
@@ -77,6 +81,7 @@ def encode_tree(text):
 
 
 def decode_tree(data, tree):
+    
     text, next_index = decode_next_element(data, 0, tree)
 
     while next_index < len(data):
@@ -90,7 +95,7 @@ def test_encoding(text):
     
     encoded_data, tree = encode_tree(text)
     print ("Huffman Encoding:\t {}".format(encoded_data))
-    print ("Size:\t\t\t {}".format( sys.getsizeof( int(encoded_data, base=2) )))
+    #print ("Size:\t\t\t {}".format( sys.getsizeof(int(encoded_data, base=2))))
     
     decoded_data = decode_tree(encoded_data, tree)
     print ("Decoded Text:\t\t {}".format(decoded_data))
@@ -99,12 +104,12 @@ def test_encoding(text):
 
 ####Test Cases
 #Test case 1
-print( test_encoding("ABBBBABBABABBBAABABABAABABA") )
-# Original Text:           ABBBBABBABABBBAABABABAABABA
-# Size:                    76
-# Huffman Encoding:        011110110101110010101001010
+print( test_encoding("AAAAAAA") )
+# Original Text:           AAAAAAA
+# Size:                    56
+# Huffman Encoding:        0000000
 # Size:                    28
-# Decoded Text:            ABBBBABBABABBBAABABABAABABA
+# Decoded Text:            AAAAAAA
 # Size:                    76
 #Test case 2
 print( test_encoding("EXAMPLE") )
@@ -114,7 +119,7 @@ print( test_encoding("EXAMPLE") )
 # Size:                    28
 # Decoded Text:            EXAMPLE
 #Test case 3
-print( test_encoding("BABAAABBAEIOULMNOP") )
+print( test_encoding(""))
 # Original Text:           BABAAABBAEIOULMNOP
 # Size:                    67
 # Huffman Encoding:        011101111111010111101010111100101100001000000111000010

@@ -99,7 +99,7 @@ linked_list_3 = LinkedList()
 linked_list_4 = LinkedList()
 
 array_3 = [1,3,5,7,9]
-array_4 = [9,11,13,15,17,19]
+array_4 = [11,13,15,17,19]
 
 for i in array_3:
     linked_list_3.append(i)
@@ -108,14 +108,15 @@ for i in array_4:
     linked_list_4.append(i)
 
 print(union(linked_list_3, linked_list_4))
+
 print(intersection(linked_list_3, linked_list_4))
 
 ##Test Case 3
 linked_list_5 = LinkedList()
 linked_list_6 = LinkedList()
 
-array_5 = [0,1,2,3,4,5,6]
-array_6 = [7,8,9,10,11,12,13]
+array_5 = []
+array_6 = []
 
 for i in array_5:
     linked_list_5.append(i)
@@ -124,4 +125,6 @@ for i in array_6:
     linked_list_6.append(i)
 
 print(union(linked_list_5, linked_list_6))
+#Answer is None
 print(intersection(linked_list_5, linked_list_6))
+#Answer is None

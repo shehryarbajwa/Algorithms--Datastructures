@@ -70,3 +70,6 @@ print( is_user_in_group( "Bob", sub_child_child ) )
 #False
 print( is_user_in_group( "Richard", sub_child_child ) )
 #False
+print( is_user_in_group( "", sub_child_child ) )
+#False
+print(is_user_in_group( "", parent ))
