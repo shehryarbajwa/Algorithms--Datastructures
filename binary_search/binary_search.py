@@ -36,3 +36,22 @@ def binary_search(array, target):
         else:
             start_index = array[mid_index + 1]
     return -1
+
+print(binary_search([1,2,3,4,5,6,7,8], 7))
+
+
+#Binary search via recursion
+
+def binary_search_recursive_soln(array, target, start_index, end_index):
+    if start_index > end_index:
+        return 'The start index exceeds the end index. Please try again'
+    
+    mid_index = (start_index + end_index)//2
+    mid_element = array[mid_index]
+    
+    if mid_element == target:
+        return mid_index
+    elif target < mid_element:
+        return binary_search_recursive_soln(array, target, start_index, mid_index - 1)
+    else:
+        return binary_search_recursive_soln(array, target, mid_index + 1, end_index)
