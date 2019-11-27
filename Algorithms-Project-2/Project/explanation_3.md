@@ -14,3 +14,5 @@ In our hash function, we map 0 and 1 to the same key multiple times depending on
 Decode next element will be done in O(n) time since we are going to traverse through the tree and return the character associated with the tree based on going left(0) or right(1) of the tree
 Huffman encoding the tree will be done in O(nlogn) time for mapping each element to the data string
 Huffman decoding will be done in O(n^2) since the while loop will be run n times i.e len of data and the while loop will then run decode_next element which will take O(n) time
+
+Space time complexity for TimSort by Python will take on average O(n) at its worst for storing data relative to the size of the data i.e n
