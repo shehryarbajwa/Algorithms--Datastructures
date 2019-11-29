@@ -39,7 +39,7 @@
 #We know 6 > 5 and 3 so we dont need to check the roots since 5 and 3's roots are smaller than 5 and 3
 #Therefore we can do it in half the steps i,e O(n/2) which is still O(n) when approximated
 
-#A priority queue is used to denote the severity of patient's illness and who comes in and gets checked first
+#A priority queue is used to denote the severity of patient's illness and who comes in and gets checked first s
 
 class Heap:
     def __init__(self, initial_size=10):
