@@ -83,6 +83,19 @@ class Heap:
         child_index = self.next_index
 
         while child_index >= 1:
+            #Get the parent index which is current_index - 1 and divisible by 2
+            #Parent index is the one containing the parent element
+            #We can then get the parent element
+            #Then find the child element at the current index
+            #If parent element is > child element
+            #Then we swap the element at the parent index with the child element
+            #and element at the child index becomes the parent element
+            #child index becomes parent index
+            #Why? Because we are moving up the tree
+            #child index becomes 0 and loop breaks
+            #Now we insert an element again
+            #Child index will keep getting the parent index and keep moving up
+            #It breaks each time we hit the root of our tree
             parent_index = (child_index - 1) // 2
             parent_element = self.cbt[parent_index]
             child_element = self.cbt[child_index]
