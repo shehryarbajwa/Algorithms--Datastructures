@@ -17,11 +17,11 @@
 
 #Min heap
             #1(0)
-        /           \
+ #       /           \
      #3(1)          4(2)
-    /   \           /   \
+ #   /   \           /   \
  #4(3)    5(4)     6(5)  7(6)
- /         \
+ #/         \
 
  #If we insert 3 at index 7, since that is the first element we will be inserting at index 7
  #If however, we insert 2 at index 7
@@ -34,46 +34,54 @@
  #Time complexity of insert is O(log n)
 
 class Heap:
-    def __init__(self, intial_size):
-        self.cbt = [None for _ in range(intial_size)]
-        self.next_index = 0
+    def __init__(self, initial_size=10):
+        self.cbt = [None for _ in range(initial_size)]  # initialize arrays
+        self.next_index = 0  # denotes next index where new element should go
 
     def insert(self, data):
-        #Insert a new element at the next index
+        # insert element at the next index
         self.cbt[self.next_index] = data
 
-        #Up heapify checks whether the parent is < child
-        #If it is swap, else continue
-        self.up_heapify()
+        # heapify
+        self._up_heapify()
 
-        #Increment the next index by 1
+        # increase index by 1
         self.next_index += 1
 
-        #If next_index goes out of array bounds, we need to double the array
-        #temp stores the current array
-        #self.cbt becomes for 2 * len(self.cbt)
-        #We double the array
-         
+        # double the array and copy elements if next_index goes out of array bounds
         if self.next_index >= len(self.cbt):
             temp = self.cbt
             self.cbt = [None for _ in range(2 * len(self.cbt))]
-            
-            #for index in range(self.next_index)
-            #This allows us to look at the range index
-            #Copy elements from the old array to the new array
 
             for index in range(self.next_index):
                 self.cbt[index] = temp[index]
 
-    
     def remove(self):
-        pass
+        if self.size() == 0:
+            return None
+        self.next_index -= 1
 
-    def up_heapify(self):
-        #child_index refers to the next_index
+        to_remove = self.cbt[0]
+        last_element = self.cbt[self.next_index]
+
+        # place last element of the cbt at the root
+        self.cbt[0] = last_element
+
+        # we do not remove the elementm, rather we allow next `insert` operation to overwrite it
+        self.cbt[self.next_index] = to_remove
+        self._down_heapify()
+        return to_remove
+
+    def size(self):
+        return self.next_index 
+
+    def is_empty(self):
+        return self.size() == 0
+
+    def _up_heapify(self):
+        # print("inside heapify")
         child_index = self.next_index
 
-        #while child_index is greater than equal to 1
         while child_index >= 1:
             parent_index = (child_index - 1) // 2
             parent_element = self.cbt[parent_index]
@@ -87,5 +95,52 @@ class Heap:
             else:
                 break
 
-        
+    def _down_heapify(self):
+        parent_index = 0
+
+        while parent_index < self.next_index:
+            left_child_index = 2 * parent_index + 1
+            right_child_index = 2 * parent_index + 2
+
+            parent = self.cbt[parent_index]
+            left_child = None
+            right_child = None
+
+            min_element = parent
+
+            # check if left child exists
+            if left_child_index < self.next_index:
+                left_child = self.cbt[left_child_index]
+
+            # check if right child exists
+            if right_child_index < self.next_index:
+                right_child = self.cbt[right_child_index]
+
+            # compare with left child
+            if left_child is not None:
+                min_element = min(parent, left_child)
+
+            # compare with right child
+            if right_child is not None:
+                min_element = min(right_child, min_element)
+
+            # check if parent is rightly placed
+            if min_element == parent:
+                return
+
+            if min_element == left_child:
+                self.cbt[left_child_index] = parent
+                self.cbt[parent_index] = min_element
+                parent = left_child_index
+
+            elif min_element == right_child:
+                self.cbt[right_child_index] = parent
+                self.cbt[parent_index] = min_element
+                parent = right_child_index
+
+    def get_minimum(self):
+        # Returns the minimum element present in the heap
+        if self.size() == 0:
+            return None
+        return self.cbt[0]
 
