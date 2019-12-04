@@ -5,6 +5,11 @@
 ### 4-If a node is red, its children must be black
 ### 5-The root node must be black
 ### 6-Every path to its descendant NULL nodes must contain the same number of black nodes
+### If we have a black aunt, we rotate
+### If we have a red aunt, we color flip
+### If we have a black aunt, we rotate the parent left if node inserted has a parent on the left side of its parent.
+### If we have a black aunt, we rotate the parent right if node inserted has a parent on the right side of its parent.
+
 
 class Node(object):
     def __init__(self, value, parent, color):
@@ -54,7 +59,28 @@ class RedBlackTree(object):
         if node.parent.color == 'black':
             return
         #Case 3
-        
+        #The parent and its sibling of the newly inserted node are both red
+        #In case the parent and the sibling of the newly inserted node
+        #For example parent is 5
+        #Newly inserted node is 3 which is black
+        #Sibling of 3 is red
+        #Now we have two reds
+        #Parent and sibling so its not a red black tree since we cant have two consecutive reds
+        #4-If a node is red, its children must be black
+        #And then we will make sure that the grandparent is red
+        #And swap the color of sibling and parent
+        if pibling(node).color == 'red':
+            pibling(node).color = 'black'
+            node.parent.color = 'black'
+            grandparent(node).color = 'red'
+            self.rebalance(grandparent(node))
+
+        #Case 4
+        #The newly inserted node has a red parent but that parent has a black sibling
+        #Inside refers to:
+        #The new node being a left child of its parent but the parent is a right child of its parent
+        #The new node being a right child of its parent but the parent being a left child of its parent
+
 
     def search(self, find_val):
         return False
