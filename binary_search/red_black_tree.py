@@ -19,11 +19,32 @@ class Node(object):
         self.parent = parent
         self.color = color
 
+    def __repr__(self):
+        print_color = "R" if self.color == 'red' else "B"
+        return '%d%s' % (self.value, print_color)
+
+def grandparent(node):
+    if node.parent == None:
+        return None
+    return node.parent.parent
+
+def pibling(node):
+    p = node.parent
+    gp = grandparent(node)
+
+    if gp == None:
+        return None
+    if p == gp.left:
+        return gp.right
+    if p == gp.right:
+        return gp.left
+
 class RedBlackTree(object):
     def __init__(self, root):
         #Insert the root node
         #self.root = Node(value=root, parent=None, 'red')
         self.root = Node(root, None, 'red')
+    
     
     def insert(self, new_val):
         new_node = self.insert_helper(self.root, new_val)
@@ -41,14 +62,16 @@ class RedBlackTree(object):
 
         if current.value < new_val:
             if current.right:
-                self.insert_helper(current.right, new_val)
+                return self.insert_helper(current.right, new_val)
             else:
                 current.right = Node(new_val, current, 'red')
+                return current.right
         else:
             if current.left:
-                self.insert_helper(current.left, new_val)
+                return self.insert_helper(current.left, new_val)
             else:
                 current.left = Node(new_val, current, 'red')
+                return current.left
 
     def rebalance(self, node):
         #Case 1
@@ -69,19 +92,82 @@ class RedBlackTree(object):
         #4-If a node is red, its children must be black
         #And then we will make sure that the grandparent is red
         #And swap the color of sibling and parent
-        if pibling(node).color == 'red':
+        if pibling(node) and pibling(node).color == 'red':
             pibling(node).color = 'black'
             node.parent.color = 'black'
             grandparent(node).color = 'red'
-            self.rebalance(grandparent(node))
+            return self.rebalance(grandparent(node))
 
         #Case 4
         #The newly inserted node has a red parent but that parent has a black sibling
         #Inside refers to:
-        #The new node being a left child of its parent but the parent is a right child of its parent
+
+        gp = grandparent(node)
+        if gp == None:
+            return
         #The new node being a right child of its parent but the parent being a left child of its parent
+        if gp.left and node == gp.left.right:
+            self.rotate_left((node.parent))
+        #The new node being a left child of its parent but the parent is a right child of its parent
+            self.rotate_right((node.parent))
+
+        #Case 5
+        #Case 5 is for the outside when the new node inserted and its parent are on the same side of the grandparent
+        #Newly inserted node has a red parent
+        #Red parent has a black sibling
+
+        p = node.parent
+        gp = p.parent
+        if node == p.left:
+            self.rotate_right(gp)
+        else:
+            self.rotate_left(gp)
+        p.color = 'black'
+        gp.color = 'red'
+
+    
+    def rotate_left(self, node):
+        #Save off the parent of the sub-tree we're rotating
+        p = node.parent
+        #After node moves up, the right child will now be a left child
+        node_moving_up = node.right
+        node.right = node_moving_up.left
+        #Node moves down, to being a left child
+        node_moving_up.left = node
+        node.parent = node_moving_up
+
+        #Now we need to connect to the sub-tree's parent
+        #node may have been the root
+        if p != None:
+            if node == p.left:
+                p.left = node_moving_up
+            else:
+                p.right = node_moving_up
+        node_moving_up.parent = p
+
+    def rotate_right(self, node):
+        p = node.parent
+
+        node_moving_up = node.left
+        node.left = node_moving_up.right
+
+        node_moving_up.right = node
+        node.parent = node_moving_up
+        #In rotations, we just change the pointers of different nodes
+        #And swap the values of the nodes
+        #Rotation only happens when there is a red aunt or a black aunt
+        if p != None:
+            if node == p.left:
+                p.left = node_moving_up
+            else:
+                p.right = node_moving_up
+        node_moving_up.parent = p
 
 
     def search(self, find_val):
         return False
+
+tree = RedBlackTree(9)
+tree.insert(6)
+tree.insert(19)
 
