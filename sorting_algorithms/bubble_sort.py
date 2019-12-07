@@ -48,9 +48,4 @@ print(wakeup_times[1])
 print(wakeup_times[-1])
 
 
-###Problem 2
-###Sam doesnt always go to sleep in the same hour. Given the following times Sam has gone to sleep, sort the times from latest to earliest
 
-sleep_times= [(24,13), (21,55), (23,20), (22,5), (24,23), (21,58), (24,3)]
-
-def bubble_sort_2(l):
