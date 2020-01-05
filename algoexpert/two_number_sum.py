@@ -35,5 +35,10 @@ def twoNumberSum(array, targetSum):
             return [targetSum - number, number]
         else:
             nums[number] = True
+    return []
 
-print(twoNumberSum([1,2,3,4,5], 9))
+#Space-time complexity
+#O(n) Time
+#O(n) Space since we are storing the number in nums dictionary
+
+print(twoNumberSum([1,2,3,4,5], 22))
