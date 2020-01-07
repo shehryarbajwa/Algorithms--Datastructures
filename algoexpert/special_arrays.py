@@ -1,6 +1,9 @@
 #Special array is a recursive problem.
 #If a special array can contain other special arrays, it can be done recursively.
 
+# Depth of an array [] is 1
+# Depth of the array[4,5] in [1,[4,5]] is 2
+# Depth of the array[3.4] in [1,[3,[3,4]]] is 3 and so on....
 
 # Time Complexity what is N?
 # Space Complexity what is D?
