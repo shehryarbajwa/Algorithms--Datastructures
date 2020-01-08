@@ -10,6 +10,10 @@
 ## We need to compare three numbers largest, secondlargest, thirdLargest
 ## When the value iterated is not greater than any value, we just break out of the loop
 
+# TimeComplexity O(N) for traversing all integers
+# Space Complexity O(1) for just updating the array values
+
+
 def findThreeLargestNumbers(array):
     largest = 0
     secondlargest = 0
