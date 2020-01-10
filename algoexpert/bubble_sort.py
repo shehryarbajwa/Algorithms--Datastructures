@@ -23,8 +23,8 @@ def bubbleSort(array):
     while not isSorted:
         isSorted = True
         for i in range(len(array) - 1):
-            if array[i] > array[i + 1]:
-                swap(i, i + 1 , array)
+            if array[i + 1] < array[i]:
+                swap(i + 1, i , array)
                 isSorted = False
     return array
 
