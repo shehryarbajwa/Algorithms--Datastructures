@@ -1,4 +1,4 @@
-## BubbleSort
+# BubbleSort
 
 #   In the beginning we assume, the array is not sorted so we can traverse
 #   While not sorted
@@ -16,23 +16,24 @@
 # Space Complexity O(1) because we are swappning on the original array and not using any new Data structure to hold values. Therefore we are not using memory for additional data structures. BubbleSort is in order
 
 
-
 def bubbleSort(array):
     isSorted = False
-    
+
     while not isSorted:
         isSorted = True
         for i in range(len(array) - 1):
             if array[i + 1] < array[i]:
-                swap(i + 1, i , array)
+                swap(i + 1, i, array)
                 isSorted = False
     return array
 
-def swap(i, j , array):
+
+def swap(i, j, array):
     temp = array[i]
     array[i] = array[j]
     array[j] = temp
 
     # array[i], array[j] = array[j], array[i]
 
-print(bubbleSort([1,2,-1,4,11,19,6,4]))
+
+print(bubbleSort([1, 2, -1, 4, 11, 19, 6, 4]))

@@ -1,7 +1,7 @@
-## Binary Search Algorithm is like using a dictionary
-## If you have a target, you look at the middle element, if target<middle then recurse left else recurse right
+# Binary Search Algorithm is like using a dictionary
+# If you have a target, you look at the middle element, if target<middle then recurse left else recurse right
 
-## Pre-requisite : List of things have to be sorted
+# Pre-requisite : List of things have to be sorted
 
 
 # Time Complexity O(logn) because we eliminate half the input logarithmically
@@ -10,7 +10,8 @@
 
 def binarySearch(array, target):
     # Write your code here.
-	return binarySearchHelper(array, target, 0, len(array) - 1)
+    return binarySearchHelper(array, target, 0, len(array) - 1)
+
 
 def binarySearchHelper(array, target, left, right):
 
@@ -26,11 +27,11 @@ def binarySearchHelper(array, target, left, right):
         return binarySearchHelper(array, target, left, middle + 1)
     else:
         return binarySearchHelper(array, target, middle + 1, right)
-	
 
-## Iterative implementation
-## Time Complexity O(logn)
-## Space Complexity O(1) not storing anything just iterating
+
+# Iterative implementation
+# Time Complexity O(logn)
+# Space Complexity O(1) not storing anything just iterating
 def binary_search(array, target):
     left = 0
     right = len(array) - 1
@@ -49,5 +50,5 @@ def binary_search(array, target):
     return -1
 
 
-print(binary_search([1,2,3,4,5,6], 3))
-print(binarySearch([1,2,3,4,5,6], 3))
+print(binary_search([1, 2, 3, 4, 5, 6], 3))
+print(binarySearch([1, 2, 3, 4, 5, 6], 3))
