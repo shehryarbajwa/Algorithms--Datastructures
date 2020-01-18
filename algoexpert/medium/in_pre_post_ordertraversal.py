@@ -27,6 +27,33 @@
 # We run this tree is not None
 # Once we finish we return array
 
+
+
+class BST:
+    def __init__(self, value):
+        self.value = value
+        self.left = None
+        self.right = None
+
+    def insert(self, value):
+        
+        currentNode = self
+
+        if value > currentNode.value:
+            if currentNode.right is None:
+                currentNode.right = BST(value)
+            else:
+                currentNode.right.insert(value)
+        elif value < currentNode.value:
+            if currentNode.left is None:
+                currentNode.left = BST(value)
+            else:
+                currentNode.left.insert(value)
+
+        return self
+        
+
+
 def in_order_traversal(tree, array):
     if tree is not None:
         in_order_traversal(tree.left, array)
@@ -70,6 +97,16 @@ def post_order_tree(tree, array):
     
     return array
 
+#                           /   \
+#                         5       15
+#                       /  \        \
+#                      2    5       22
+#                    /       \      / \
+#                   1         6    20  24  
 #In-order means in the middle add to array
 #Pre-order means add it to the array before recursing left or right
 #Post-order means add it to the array after recursing left and right
+
+BST_1 = BST(10).insert(5).insert(2).insert(5).insert(1).insert(6).insert(15).insert(22).insert(20).insert(24)
+
+print(post_order_tree(BST_1, []))
