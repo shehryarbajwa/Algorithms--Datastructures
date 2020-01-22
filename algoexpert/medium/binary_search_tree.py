@@ -119,10 +119,13 @@ class BST:
                 parentNode = currentNode
                 currentNode = currentNode.left
             else:
+                #subcase 1: if node has no children
                 if currentNode.left is not None and currentNode.right is not None:
                     currentNode.value = currentNode.right.get_min_value()
                     currentNode.right.remove(currentNode.value, currentNode)
-
+                
+                #subcase 2: if node has one children
+                #If node removed has one child
                 elif parentNode is None:
                     if currentNode.left is not None:
                         currentNode.value = currentNode.left.value
