@@ -38,6 +38,9 @@ def swapLeftandRight(tree):
 
 # Recursive Algorithm
 
+# Time Complexity O(N)
+# Space Complexity O(d) d is the height of the tree
+
 def invertBinaryTreeRecursively(tree):
     #Base case. Reach leaf node
 
