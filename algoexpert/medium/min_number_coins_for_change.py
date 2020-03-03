@@ -15,7 +15,7 @@ def minNumberCoinsForChange(n, coins):
     numofcoins[0] = 0
 
     #Traverse through the denominations
-    for coin of coins:
+    for coin in coins:
         #Traverse through the numOfcoins array
         for amount in range(len(numofcoins)):
             #Check if coin is less than the target amount
