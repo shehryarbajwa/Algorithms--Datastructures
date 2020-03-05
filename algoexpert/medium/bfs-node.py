@@ -1,4 +1,5 @@
 import unittest
+import program
 
 
 #Time Complexity O(V + E)
@@ -32,3 +33,10 @@ class Node:
                 queue.append(child)
             #keep running the loop till the queue becomes emtpy
         return bfsarray
+
+class TestProgram(unittest.TestCase):
+    def test_case_1(self):
+        test1 = Node('A')
+        test1.addChild('B').addChild('C')
+        
+        self.assertEqual(test1.breadthFirstSearch([1]))
