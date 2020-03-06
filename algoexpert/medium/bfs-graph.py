@@ -1,5 +1,8 @@
 
 #Adjacency List
+#Time Complexity O(V+ E)
+#Space Complexity O(V)
+
 graph = {'A': ['B', 'C', 'E'],
          'B': ['A', 'D','E'],
          'C': ['F', 'G' , 'A'],
