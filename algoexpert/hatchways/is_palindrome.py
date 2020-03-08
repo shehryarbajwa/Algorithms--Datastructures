@@ -1,6 +1,13 @@
 
 import unittest
 
+# Clarifying questions.
+
+# Does the input string contain strings only or numbers?
+# Does the input contain lowercase or uppercase?
+# Does it contain any punctuation?
+# What are the tradeoffs to compare each element with the last element?
+
 def is_palindrome(string):
     i = 0
 
