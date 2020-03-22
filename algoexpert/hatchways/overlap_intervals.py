@@ -11,7 +11,7 @@
 # Are all intervals sorted?
 # Are all intervals in an array?
 # Are all intervals with a start and end and only contains these two points?
-# 
+# Strategy:
 
 
 
