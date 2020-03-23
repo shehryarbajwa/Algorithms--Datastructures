@@ -7,6 +7,16 @@
 
 # Slice doesnt work on strings. So donot waste time.
 
+# Time Complexity O(N^2)
+# Space Complexity O(N^2)
+
+# It is O(N^2) because we iterate over the new string variable and add a new string to it each time.
+# String concatenation works in O(N) time in programming languages
+
+# It is space complexity O(N^2) because we create a new string variable each time we update the string
+
+
+
 import unittest
 
 def goat_latin(string):

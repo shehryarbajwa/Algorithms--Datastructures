@@ -17,37 +17,47 @@
 
 import unittest
 
-def longest_word(sen):
-    longest_word = []
+#Time Complexity O(n^2) complexity since we iterate over the input string.
+#Then replace is a O(N) time complexity in avg time and O(N * N) in worst time since we might have to replace it with something that is equally time consuming
 
-    longest_word = sen.split(' ')
-
-    result = [longest_word[0]]
-
-    for element in longest_word[1:]:
-
-        if len(element) == len(result):
-            result[-1] = result
-
-        if len(element) > len(result):
-            result[-1] = element
-
-    return result
+#Space Complexity is O(1) since we are doing in order replacement and not using a new data structure to hold the resultant string.
 
 
-def longest_word_punctuation(sen):
-    for char in sen:
-        if not char.isalnum():
-            sen = sen.replace(char, ' ')
-    print(sen)
-    return max(sen.split(' '), key=len)
+def longest_word_punctuation(string):
+    for word in string:
+        #If character is not alphanumeric
+        if word.isalnum() is not True:
+            #replace the character with a space
+            string = string.replace(word, ' ')
+    #Return the max of sen.split(' ') by key = length and since it is a return, 
+    # the first value with the longest string will be returned.
+    #Max will scan the entire input string and return the first occureence of the longest string.
+    return max(string.split(' '), key=len)
+
+# print(longest_word('i love dogs'))
+
+class Tests(unittest.TestCase):
+    def test_case_1(self):
+        self.assertEqual(longest_word_punctuation('I love dogs'), 'love')
+
+    def test_case_2(self):
+        self.assertEqual(longest_word_punctuation('I love doggies'), 'doggies')
+
+    def test_case_3(self):
+        self.assertEqual(longest_word_punctuation('I love!!! doggies'), 'doggies')
+
+    def test_case_4(self):
+        self.assertEqual(longest_word_punctuation('I admiree!gee doggies'), 'admiree')
+
+    def test_case_5(self):
+        self.assertEqual(longest_word_punctuation('hello and nicer'), 'hello')
+
+    
 
 
 
-
-print(longest_word('i love dogs'))
-
-print(longest_word_punctuation('fund&!! love dogs'))
+if __name__ == '__main__':
+    unittest.main()
         
 
 

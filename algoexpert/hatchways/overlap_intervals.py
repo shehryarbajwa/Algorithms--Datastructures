@@ -1,6 +1,6 @@
-#Given an array of integers, compare whether each element is greater than the next element
+# Given an array of integers, compare whether each element is greater than the next element
 
-#Given a set of time intervals in any order, 
+# Given a set of time intervals in any order, 
 # merge all overlapping intervals into one and output the result which should have only mutually exclusive intervals. 
 # Let the intervals be represented as pairs of integers for simplicity.
 
@@ -10,9 +10,7 @@
 
 # Are all intervals sorted?
 # Are all intervals in an array?
-# Are all intervals with a start and end and only contains these two points?
-# Strategy:
-
+# Are all intervals with a start and end and only contains these two points ?
 
 
 import unittest
@@ -41,8 +39,10 @@ def merge_intervals(intervals):
 # To calculate it, we can pictorially see that by calcuating the maxiumum value of the start.
 # Then calculating the minimum value of the end. If there difference is positive, that means there exists an interval between them
 
+
 # e.g 1 event starts at 1 pm and ends at 4 pm.
 # e.g 2nd event starts at 2 pm but ends at 3 pm.
+
 
 # Intuitively, we know that 2 - 3 pm falls between the first interval.
 # So we calculate the maximum value of the start. That way we know which event started later.
@@ -63,6 +63,10 @@ class Tests(unittest.TestCase):
 
     def test_case_2(self):
         self.assertEqual(merge_intervals([[1,2],[3,4]]), [[1,2], [3,4]])
+
+    def test_case_3(self):
+        self.assertEqual(merge_intervals([[1,2],[1,4], [5,6]]), [[1,4], [5,6]])
+
 
 
 if __name__ == '__main__':
