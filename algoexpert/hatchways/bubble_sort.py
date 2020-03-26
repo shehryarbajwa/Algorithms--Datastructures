@@ -1,8 +1,16 @@
 import unittest
 
+
+#Time Complexity
+#Best case O(N) times if the array is already sorted.
+#Average Case O(N^2) times since we iterate over the array, then compare each element in the array
+#Worst case O(N^2) times
+
+#Space Complexity is O(1) space since we do things in order.
+
 def bubbleSort(array):
 
-    #Here why do we substract i
+    #The outerloop runs for each element in the array N times.
 
     for i in range(len(array)):
 

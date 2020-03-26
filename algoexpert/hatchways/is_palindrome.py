@@ -18,6 +18,17 @@ def is_palindrome(string):
         i += 1
     return True
 
+def is_palindrome_1(string):
+
+    left_index = 0
+    right_index = len(string) - 1
+
+    while left_index <= right_index:
+        if string[left_index] != string[right_index]:
+            return False
+        left_index += 1
+        right_index -= 1
+    return True
 
 
 class TestCase(unittest.TestCase):
@@ -32,6 +43,12 @@ class TestCase(unittest.TestCase):
 
     def test_case_4(self):
         self.assertEqual(is_palindrome('baba'), False)
+
+    def test_case_5(self):
+        self.assertEqual(is_palindrome_1('baba'), False)
+
+    def test_case_6(self):
+        self.assertEqual(is_palindrome_1('aba'), True)
     
 
 if __name__ == '__main__':
