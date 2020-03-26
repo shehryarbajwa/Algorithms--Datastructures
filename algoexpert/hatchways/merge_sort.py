@@ -1,10 +1,15 @@
 
 
-def create_empty_array_size(size):
+import unittest
+
+def create_dynamic_array(size):
 
     return [None] * size
 
 def merge_sort(array):
+
+    if len(array) == 0:
+        return []
 
     if len(array) == 1:
         return array
@@ -26,7 +31,7 @@ def merge_sort(array):
 
 def merge_array(left, right):
 
-    sorted_array = create_empty_array_size(len(left) + len(right))
+    sorted_array = create_dynamic_array(len(left) + len(right))
 
     i = 0
     j = 0
@@ -58,8 +63,24 @@ def merge_array(left, right):
     return sorted_array
 
 
+class Tests(unittest.TestCase):
+    def test_case_1(self):
+        self.assertEqual(merge_sort([1,4,9,2,3]), [1,2,3,4,9])
 
-print(merge_sort([1,4,9,2,3]))
+    def test_case_2(self):
+        self.assertEqual(merge_sort([1,4,19,32,3]), [1,3,4,19, 32])
+
+    def test_case_3(self):
+        self.assertEqual(merge_sort([]), [])
+
+    def test_case_4(self):
+        self.assertEqual(merge_sort([1,4,9,11]), [1,4,9,11])
+
+
+if __name__ == '__main__':
+    unittest.main()
+
+
     
     
 
