@@ -6,6 +6,12 @@ def create_dynamic_array(size):
 
     return [None] * size
 
+
+#Time Complexity 
+# Average: O(nlogn)
+# Worst : O(nlogn)
+# Best: O(Nlogn)
+#Space Complexity O(N) for using a dynamic array
 def merge_sort(array):
 
     if len(array) == 0:
