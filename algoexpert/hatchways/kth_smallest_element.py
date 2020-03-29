@@ -58,12 +58,10 @@ def kth_largest_element_quick_select(array, k):
 
 def quick_select(array, start, end, position):
 
-
-    pivot = start
-    left = start + 1
-    right = end
-
     while True:
+        pivot = start
+        left = start + 1
+        right = end
 
         #Base case
 
@@ -94,16 +92,19 @@ def quick_select(array, start, end, position):
         elif right < position:
             start = right + 1
         #If it is smaller than pivot, we have skipped the right part and change the end to be one before pivot.
+
+        #this will keep running till we return the final position
         else:
             end = right - 1
 
 def swap(i,j,array):
     array[i], array[j] = array[j], array[i]
 
-if __name__ == "__main__":
-    unittest.main()
-
 
 class Tests(unittest.TestCase):
     def test_case_1(self):
-        self.assertEqual(kth_largest_element_quick_select([4,1,9,12], 2) , 4)
+        self.assertEqual(kth_largest_element_quick_select([14,2,1,9],2), 2)
+
+
+if __name__ == "__main__":
+    unittest.main()

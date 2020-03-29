@@ -1,69 +1,40 @@
 
 
-def bubble_sort(array):
-
-    if len(array) == 1:
-        return array
-        
-    for i in range(len(array)):
-        for j in range(len(array) - 1 - i):
-            if array[j] > array[j + 1]:
-                array[j], array[j + 1] = array[j + 1], array[j]
-    return array
-
 def insertion_sort(array):
 
-    if len(array) == 1:
-        return array
-    
-    for i in range(1, len(array)):
+    for i in range(1,len(array)):
         j = i
+
         while j > 0 and array[j] < array[j - 1]:
             array[j], array[j - 1] = array[j - 1], array[j]
             j -= 1
     return array
 
-def quick_sort(array):
-    quicksorthelper(array, 0, len(array) - 1)
-    return array
+def palindrome(string):
 
-def quicksorthelper(array, start, end):
-
-    #base case
-    #If array is empty or 1 element
-
-    if start >= end:
-        return
-    
-    pivot = start
-    left = start + 1
-    right = end
+    left = 0
+    right = len(string) - 1
 
     while left <= right:
-        if array[left] > array[pivot] and array[right] < array[pivot]:
-            array[left], array[right] = array[right], array[left]
+        if string[left] != string[right]:
+            return False
 
-        if array[left] < array[pivot]:
-            left += 1
+        if len(string) % 2 != 0:
+            return False
 
-        if array[right] > array[pivot]:
-            right -= 1
+        left += 1
+        right -= 1
+    return True
 
-    swap(pivot, right, array)
-    left_length = right - 1 - start
-    right_length = end - right + 1
+def bubble_sort(array):
 
-    if left_length < right_length:
-        quicksorthelper(array, start, right - 1)
-        quicksorthelper(array, right + 1, end)
-    else:
-        quicksorthelper(array, right + 1, end)
-        quicksorthelper(array, start, right - 1)
+    for i in range(len(array)):
+        for j in range(len(array) - 1 -i):
+            if array[j] > array[j + 1]:
+                swap(j,j + 1,array)
+    return array
 
 def merge_sort(array):
-
-    if len(array) == 0:
-        return
 
     if len(array) == 1:
         return array
@@ -75,37 +46,128 @@ def merge_sort(array):
     left_subarray = merge_sort(left)
     right_subarray = merge_sort(right)
 
-    return merge_sort_helper(left_subarray, right_subarray)
+    return merge(left_subarray, right_subarray)
 
-def merge_sort_helper(left, right):
-    sorted_array = [None] * (len(left) + len(right))
+def merge(left, right):
 
+    dynamic_array = [None] * (len(left) + len(right))
     i = j = k = 0
 
     while i < len(left) and j < len(right):
-        if left[i] < right[j]:
-            sorted_array[k] = left[i]
-            i += 1
+        if left[i] > right[j]:
+            dynamic_array[k] = right[j]
+            j += 1
             k += 1
         else:
-            sorted_array[k] = right[j]
-            j += 1
+            dynamic_array[k] = left[i]
+            i += 1
             k += 1
 
     while i < len(left):
-        sorted_array[k] = left[i]
+        dynamic_array[k] = left[i]
         i += 1
         k += 1
+
     while j < len(right):
-        sorted_array[k] = right[j]
+        dynamic_array[k] = right[j]
         j += 1
         k += 1
 
-    return sorted_array
+    return dynamic_array
 
 
-    
+def quick_sort(array):
+    quick_sort_helper(array, 0, len(array) - 1)
+    return array
+
+def quick_sort_helper(array, start, end):
+
+    if start >= end:
+        return
+
+    pivot = start
+    left = start + 1
+    right = end
+
+    while left <= right:
+        if array[left] > array[pivot] and array[right] < array[pivot]:
+            swap(left, right, array)
+
+        if array[left] < array[pivot]:
+            left += 1
+
+        if array[right] > array[pivot]:
+            right -= 1
+
+    swap(pivot, right , array)
+
+    left_length = right - 1 - start
+    right_length = end - right + 1
+
+    if left_length < right_length:
+        quick_sort_helper(array, start, right - 1)
+        quick_sort_helper(array, right + 1, end)
+
+    else:
+        quick_sort_helper(array, right + 1 , end)
+        quick_sort_helper(array, start, right - 1)
+
+
 def swap(i, j, array):
     array[i], array[j] = array[j], array[i]
 
+
+def kth_smallest_element(array,k):
+    array.sort()
+    position = k - 1
+
+    return array[position]
+
+def kth_largest_element(array,k):
+
+    position = len(array) - k
+
+    return quick_select(array, 0, len(array) - 1,position)
+
+def quick_select(array, start, end, position):
+
+    while True:
+
+        pivot = start
+        left = start + 1
+        right = end
+    
+        while left <= right:
+            if array[left] > array[pivot] and array[right] < array[pivot]:
+                swap(left, right, array)
+
+            if array[left] < array[pivot]:
+                left += 1
+            
+            if array[right] > array[pivot]:
+                right -= 1
+
+        swap(pivot, right , array)
+
+        if right == position:
+            return array[right]
+        elif right < position:
+            #How will we change pivot if we change the values of just left and right.
+            #If we change start and end, we can re-assign values to all three variables.
+            #vs going and changing the pivot and 
+            start = right + 1
+        else:
+            end = right - 1
+    
+
+
+
+print(palindrome('abba'))
+print(palindrome('absba'))
+print(palindrome('palind'))
+print(bubble_sort([4,9,18,1,2]))
+print(quick_sort([4,9,18,1,2]))
+print(merge_sort([4,9,18,1,2]))
+print(insertion_sort([4,9,18,1,2]))
+print(kth_largest_element([4,9,18,1,2], 2))
 
