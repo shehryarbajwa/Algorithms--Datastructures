@@ -9,6 +9,10 @@
 #    E   F  G    H
 # After DFS - [A,B,E,F,C,D,G,H]
 
+#Time Complexity O(V + E) O(V) for adding each vertex to the array. O(V) for the amount of times we have to traverse the children Nodes
+#Space Complexity O(V) for adding DFS to the call stack for each vertex
+
+
 class Node:
     def __init__(self, name):
         self.name = name
