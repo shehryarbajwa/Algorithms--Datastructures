@@ -1,4 +1,3 @@
-
 import unittest
 
 class BST:
@@ -102,31 +101,45 @@ class BST:
 
         return currentNode.value
 
+
+def in_order_traversal(node, array):
+
+    #Tree is not a leaf node
+    if node is not None:
+        in_order_traversal(node.left, array)
+        array.append(node.value)
+        in_order_traversal(node.right, array)
+    return array
+
+def pre_order_traversal(node, array):
+
+    if node is not None:
+        array.append(node.value)
+        pre_order_traversal(node.left, array)
+        pre_order_traversal(node.right, array)
+    return array
+
+def post_order_traversal(node, array):
+    
+    if node is not None:
+        post_order_traversal(node.left, array)
+        post_order_traversal(node.right, array)
+        array.append(node.value)
+    return array
+
 class Tests(unittest.TestCase):
     def test_case_1(self):
-        node_1 = BST(10).insert(8).insert(12)
-        self.assertEqual(node_1.contains(12), True)
+        node_1 = BST(10).insert(5).insert(15).insert(2).insert(5).insert(1).insert(22)
+        self.assertEqual(post_order_traversal(node_1, []), [1, 2, 5, 5, 22, 15, 10])
 
     def test_case_2(self):
-        node_1 = BST(10).insert(8).insert(12)
-        self.assertEqual(node_1.contains(13), False)
-
+        node_1 = BST(10).insert(5).insert(15).insert(2).insert(5).insert(1).insert(22)
+        self.assertEqual(pre_order_traversal(node_1, []), [10, 5, 2, 1, 5, 15, 22])
+    
     def test_case_3(self):
-        node_1 = BST(10).insert(8).insert(12)
-        self.assertEqual(node_1.left.value, 8)
-
-    def test_case_4(self):
-        node_1 = BST(10).insert(8).insert(12).insert(6).insert(9).insert(11).insert(13)
-        self.assertEqual(node_1.right.value, 12)
-
-    def test_case_5(self):
-        node_1 = BST(10).insert(8).insert(12).insert(6).insert(9).insert(11).insert(13).insert(12.5)
-        node_1.remove(12)
-        self.assertEqual(node_1.right.value, 12.5)
+        node_1 = BST(10).insert(5).insert(15).insert(2).insert(5).insert(1).insert(22)
+        self.assertEqual(in_order_traversal(node_1, []), [1, 2, 5, 5, 10, 15, 22])
 
 
-
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
-                    
