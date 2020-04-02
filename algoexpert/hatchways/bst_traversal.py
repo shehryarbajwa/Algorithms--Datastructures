@@ -101,30 +101,40 @@ class BST:
 
         return currentNode.value
 
-
+#Time Complexity O(N) Space O(d) for storing calls on the call stack
 def in_order_traversal(node, array):
 
+    currentNode = node
+
+    #We stop as our base case when node is of None type
+    #So our base case is when node is None
     #Tree is not a leaf node
-    if node is not None:
-        in_order_traversal(node.left, array)
-        array.append(node.value)
-        in_order_traversal(node.right, array)
+    #We cannot recurse on the node's value because there is no node.value.left method
+    #We need to recurse on the node block itself
+    if currentNode is not None:
+        in_order_traversal(currentNode.left, array)
+        array.append(currentNode.value)
+        in_order_traversal(currentNode.right, array)
     return array
 
 def pre_order_traversal(node, array):
 
-    if node is not None:
-        array.append(node.value)
-        pre_order_traversal(node.left, array)
-        pre_order_traversal(node.right, array)
+    currentNode = node
+
+    if currentNode is not None:
+        array.append(currentNode.value)
+        pre_order_traversal(currentNode.left, array)
+        pre_order_traversal(currentNode.right, array)
     return array
 
 def post_order_traversal(node, array):
+
+    currentNode = node
     
-    if node is not None:
-        post_order_traversal(node.left, array)
-        post_order_traversal(node.right, array)
-        array.append(node.value)
+    if currentNode is not None:
+        post_order_traversal(currentNode.left, array)
+        post_order_traversal(currentNode.right, array)
+        array.append(currentNode.value)
     return array
 
 class Tests(unittest.TestCase):
