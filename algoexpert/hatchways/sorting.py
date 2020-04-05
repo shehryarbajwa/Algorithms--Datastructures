@@ -51,6 +51,24 @@ def quick_sort_helper(array, start, end):
     else:
         quick_sort_helper(array, right_index + 1, end)
         quick_sort_helper(array, start, right_index - 1)
+
+def merge_sort(array):
+
+    merge_sort_helper(array)
+    return array
+
+def merge_sort_helper(array):
+
+    middle = len(array) // 2
+    left = array[:middle]
+    right = array[middle:]
+
+    left_subarray = merge_sort_helper(left)
+    right_subarray = merge_sort_helper(right)
+
+    return merge(left_subarray, right_subarray)
+
+def merge()
     
 def swap(i, j, array):
     array[i], array[j] = array[j], array[i]
