@@ -10,6 +10,7 @@
 
 #The hash function for integers will be different from the hash function for strings, which again, will be different for some object of a class that you created.
 
+import unittest
 
 class Hashmap:
 
@@ -48,8 +49,7 @@ class Hashmap:
             for i in range(0, len(self.array[hash_key])):
                 if self.array[hash_key][i][0] == key:
                     self.array[hash_key].pop(i)
-        
-        return self
+                    return True
 
     def print(self, key):
         hash_key = self.generate_hash(key)
@@ -73,15 +73,36 @@ class Hashmap:
         
         return hash_code
 
-            
-    
-hash_map = Hashmap()
-hash_map.put('Beans',3.25)
-hash_map.put('Rice',3.05)
-hash_map.put('Bananas',1.93)
-hash_map.put('Oranges',1.98)
-hash_map.put('Guava',2.36)
+class Tests(unittest.TestCase):
+    def test_case_1(self):
+        hash_map = Hashmap()
+        hash_map.put('Beans',3.25)
+        hash_map.put('Rice',3.05)
+        hash_map.put('Bananas',1.93)
+        hash_map.put('Oranges',1.98)
+        hash_map.put('Guava',2.36)
+        self.assertEqual(hash_map.print('banas'),False)
 
-print(hash_map.print('kjndsfkjsdnfk'))
-print(hash_map.print('banas'))
-print(hash_map.print('Bananas'))
+    def test_case_2(self):
+        hash_map = Hashmap()
+        hash_map.put('Beans',3.25)
+        hash_map.put('Rice',3.05)
+        hash_map.put('Bananas',1.93)
+        hash_map.put('Oranges',1.98)
+        hash_map.put('Guava',2.36)
+        self.assertEqual(hash_map.print('Oranges'),['Oranges', 1.98])
+
+    def test_case_3(self):
+        hash_map = Hashmap()
+        hash_map.put('Beans',3.25)
+        hash_map.put('Rice',3.05)
+        hash_map.put('Bananas',1.93)
+        hash_map.put('Oranges',1.98)
+        hash_map.put('Guava',2.36)
+        self.assertEqual(hash_map.delete('Oranges'),True)
+        self.assertEqual(hash_map.get('Oranges'), None)
+
+    
+    
+if __name__ == '__main__':
+    unittest.main()
