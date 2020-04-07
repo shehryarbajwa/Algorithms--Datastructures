@@ -30,14 +30,52 @@ class Graph:
 
     def print_adjacency_list(self):
         for node in self.adjacency_list:
-            print(node + ' -> ' + self.adjacency_list[node])
+            print(node, ' -> ', self.adjacency_list[node])
 
     def degree(self, vertex):
         degree = len(self.adjacency_list[vertex])
         return degree
 
-    
-    
+    def BFS(self, root):
+        visited = []
+        queue = [root]
+
+        while queue:
+            current = queue.pop(0)
+            if current not in visited:
+                visited.append(current)
+                neighbours = self.adjacency_list[current]
+                for neighbour in neighbours:
+                    queue.append(neighbour)
+
+        return visited
+
+    def DFS(self, root, visited):
+        visited.append(root)
+
+        for v in self.adjacency_list[root]:
+            if v not in visited:
+                self.DFS(v, visited)
+
+        return visited
+
+
+        
+
+nodes = ["A","B","C","D","E", "F"]
+graph = Graph(nodes, True)
+graph.add_edge('A', 'B')
+graph.add_edge('A', 'C')
+graph.add_edge('A', 'D')
+graph.add_edge('B', 'D')
+graph.add_edge('B', 'E')
+graph.add_edge('C', 'F')
+graph.add_edge('E', 'F')
+
+graph.print_adjacency_list()
+
+
+
 
     
 class Tests(unittest.TestCase):
@@ -49,6 +87,7 @@ class Tests(unittest.TestCase):
         graph.add_edge('C', 'D')
         graph.add_edge('E', 'D')
         graph.add_edge('E', 'A')
+        self.assertEqual(graph.BFS('A'),['A', 'B', 'C', 'D'])
         self.assertEqual(graph.contains('A','E'), False)
         self.assertEqual(graph.contains('A','B'), True)
 
