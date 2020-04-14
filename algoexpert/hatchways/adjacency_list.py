@@ -59,68 +59,94 @@ class Graph:
 
         return visited
 
+    def is_cyclic_util(self, vertex, visited, parentNode):
 
-        
+        visited[vertex] = True
 
-nodes = ["A","B","C","D","E", "F"]
+        for vertice in self.adjacency_list[vertex]:
+            if visited[vertice] == False:
+                if (self.is_cyclic_util(vertice, visited, vertex)):
+                    return True
+            elif parentNode != vertice:
+                return True
+        return False
+
+
+    def is_cyclic(self):
+
+        visited = [None] * len(self.adjacency_list)
+
+        for i in range(len(self.adjacency_list)):
+            if visited[i] == False:
+                if (self.is_cyclic_util(i, visited, -1)) == True:
+                    return True
+        return False
+
+
+nodes = ["A","B","C","D","E"]
 graph = Graph(nodes, True)
 graph.add_edge('A', 'B')
 graph.add_edge('A', 'C')
-graph.add_edge('A', 'D')
-graph.add_edge('B', 'D')
+graph.add_edge('A', 'E')
 graph.add_edge('B', 'E')
-graph.add_edge('C', 'F')
-graph.add_edge('E', 'F')
+graph.add_edge('B', 'A')
+graph.add_edge('C', 'A')
+graph.add_edge('C', 'D')
+graph.add_edge('D', 'C')
+graph.add_edge('E', 'A')
+graph.add_edge('E', 'B')
+
 
 graph.print_adjacency_list()
+print(graph.is_cyclic())
 
 
 
 
     
-class Tests(unittest.TestCase):
-    def test_case_1(self):
-        nodes = ["A","B","C","D","E"]
-        graph = Graph(nodes, True)
-        graph.add_edge('A', 'B')
-        graph.add_edge('B', 'C')
-        graph.add_edge('C', 'D')
-        graph.add_edge('E', 'D')
-        graph.add_edge('E', 'A')
-        self.assertEqual(graph.BFS('A'),['A', 'B', 'C', 'D'])
-        self.assertEqual(graph.contains('A','E'), False)
-        self.assertEqual(graph.contains('A','B'), True)
+# class Tests(unittest.TestCase):
+#     def test_case_1(self):
+#         nodes = ["A","B","C","D","E"]
+#         graph = Graph(nodes, True)
+#         graph.add_edge('A', 'B')
+#         graph.add_edge('B', 'C')
+#         graph.add_edge('C', 'D')
+#         graph.add_edge('E', 'D')
+#         graph.add_edge('E', 'A')
+#         self.assertEqual(graph.BFS('A'),['A', 'B', 'C', 'D'])
+#         self.assertEqual(graph.contains('A','E'), False)
+#         self.assertEqual(graph.contains('A','B'), True)
 
-    def test_case_2(self):
-        nodes = ["A","B","C","D","E"]
-        graph = Graph(nodes, True)
-        graph.add_edge('A', 'B')
-        graph.add_edge('B', 'C')
-        graph.add_edge('C', 'D')
-        graph.add_edge('E', 'D')
-        graph.add_edge('E', 'A')
-        self.assertEqual(graph.degree('E'),2)
+#     def test_case_2(self):
+#         nodes = ["A","B","C","D","E"]
+#         graph = Graph(nodes, True)
+#         graph.add_edge('A', 'B')
+#         graph.add_edge('B', 'C')
+#         graph.add_edge('C', 'D')
+#         graph.add_edge('E', 'D')
+#         graph.add_edge('E', 'A')
+#         self.assertEqual(graph.degree('E'),2)
     
-    def test_case_3(self):
-        nodes = ["A","B","C","D","E"]
-        graph = Graph(nodes, True)
-        graph.add_edge('A', 'B')
-        graph.add_edge('B', 'C')
-        graph.add_edge('C', 'D')
-        graph.add_edge('E', 'D')
-        graph.add_edge('E', 'A')
-        self.assertEqual(graph.degree('A'),1)
+#     def test_case_3(self):
+#         nodes = ["A","B","C","D","E"]
+#         graph = Graph(nodes, True)
+#         graph.add_edge('A', 'B')
+#         graph.add_edge('B', 'C')
+#         graph.add_edge('C', 'D')
+#         graph.add_edge('E', 'D')
+#         graph.add_edge('E', 'A')
+#         self.assertEqual(graph.degree('A'),1)
 
-    def test_case_4(self):
-        nodes = ["A","B","C","D","E"]
-        graph = Graph(nodes, False)
-        graph.add_edge('A', 'B')
-        graph.add_edge('B', 'C')
-        graph.add_edge('C', 'D')
-        graph.add_edge('E', 'D')
-        graph.add_edge('E', 'A')
-        self.assertEqual(graph.degree('A'),2)
+#     def test_case_4(self):
+#         nodes = ["A","B","C","D","E"]
+#         graph = Graph(nodes, False)
+#         graph.add_edge('A', 'B')
+#         graph.add_edge('B', 'C')
+#         graph.add_edge('C', 'D')
+#         graph.add_edge('E', 'D')
+#         graph.add_edge('E', 'A')
+#         self.assertEqual(graph.degree('A'),2)
 
 
-if __name__ == '__main__':
-    unittest.main()
+# if __name__ == '__main__':
+#     unittest.main()
