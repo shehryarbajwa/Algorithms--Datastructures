@@ -59,28 +59,45 @@ class Graph:
 
         return visited
 
-    def is_cyclic_util(self, vertex, visited, parentNode):
+    def is_cyclic_util(self, index, vertex, visited, parentNode):
 
-        visited[vertex] = True
+        visited[index] = vertex
 
-        for vertice in self.adjacency_list[vertex]:
-            if visited[vertice] == False:
-                if (self.is_cyclic_util(vertice, visited, vertex)):
+        for i, vertice in enumerate(self.adjacency_list[vertex]):
+            if vertice not in visited:
+                if self.is_cyclic_util(i, vertice, visited, vertex):
                     return True
-            elif parentNode != vertice:
+
+            elif parentNode != i:
                 return True
+
         return False
 
 
-    def is_cyclic(self):
 
-        visited = [None] * len(self.adjacency_list)
 
-        for i in range(len(self.adjacency_list)):
-            if visited[i] == False:
-                if (self.is_cyclic_util(i, visited, -1)) == True:
-                    return True
-        return False
+    def is_cyclic(self, start):
+
+        colors = { node: "WHITE" for node in self.adjacency_list}
+
+        colors[start] = "GRAY"
+        def find_cycle(graph, start):
+    colors = { node : "WHITE" for node in graph }
+    
+    print(colors)
+    # colors[start] = "GRAY"
+    # stack = [(None, start)] # store edge, but at this point we have not visited one
+    # while stack:
+    #     (prev, node) = stack.pop()  # get stored edge
+    #     for neighbor in graph[node]:
+    #         if neighbor == prev:
+    #             pass # don't travel back along the same edge we came from
+    #         elif colors[neighbor] == "GRAY":
+    #             return True
+    #         else: # can't be anything else than WHITE...
+    #             colors[neighbor] = "GRAY"
+    #             stack.append((node, neighbor)) # push edge on stack
+    # return False
 
 
 nodes = ["A","B","C","D","E"]
