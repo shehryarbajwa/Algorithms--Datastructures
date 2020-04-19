@@ -6,8 +6,8 @@ class Node(object):
         self.next = None
 
 class linked_list:
-    def __init__(self):
-        self.head = Node()
+    def __init__(self, data):
+        self.head = Node(data)
 
     def insert(self, data):
         new_node = Node(data)
@@ -27,60 +27,73 @@ class linked_list:
     def display(self):
         elements = []
         current_node = self.head
+        elements.append(current_node.data)
         while current_node.next is not None:
             current_node = current_node.next
             elements.append(current_node.data)
         return elements
 
-    def search(self, index):
-        if index >= self.length():
-            print("Error: 'Provided' index out of range")
-            return None
-        
-        current_index = 0
+    def search(self, data):
         current_node = self.head
-        print(current_node.data)
-
-        while True:
-            current_node = current_node.next
-            if current_index == index:
+        while current_node is not None:
+            if current_node.data == data:
                 return current_node.data
-            current_index += 1
+            else:
+                current_node = current_node.next
+        if current_node is None:
+            return "Value not found in list"
 
-    def delete(self, index):
-        if index >= self.length():
-            print("Error: Provided index out of range")
-            return None
-        current_index = 0
+    def delete(self, data):
         current_node = self.head
+        prev_node = None
 
-        while True:
-            last_node = current_node
-            current_node = current_node.next
-            if current_index == index:
-                last_node.next = current_node.next
-                return
-            current_index += 1
+        while current_node is not None:
+            if current_node.data == data:
+                break
+            else:
+                prev_node = current_node
+                current_node = current_node.next
+
+        if current_node is None:
+            raise ValueError("Data not in list")
+        
+
+        #   If removing the first node from the linked list
+        #   1 -> 2
+        #   Delete 2
+        #   We can see that when we have to 2 delete 2, we have to make 1's next pointer point to Null
+
+        # 1 -> 2 -> 3 -> 4
+        # Remove 2
+        # 1's next to 3
+
+
+
+        if prev_node is None:
+            self.head = current_node.next
+        else:
+            prev_node.next = current_node.next
+
+        
 
     
 
 
             
 
-            
-            
-
-
-
-my_list = linked_list()
+my_list = linked_list(1)
 my_list.insert(1)
 my_list.insert(2)
 my_list.insert(3)
-my_list.insert(4)
+my_list.insert(5)
+my_list.insert(7)
+my_list.insert(9)
+my_list.insert(11)
 
-print(my_list.search(0))
 print(my_list.display())
-
+print(my_list.search(3))
+print(my_list.search(9))
+print(my_list.search(91))
     
 
     
