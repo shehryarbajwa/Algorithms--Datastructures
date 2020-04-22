@@ -31,20 +31,21 @@ class linked_list:
         current_node = self.head
         elements.append(current_node.data)
         while current_node.next is not None:
+            elements.append(current_node.next.data)
             current_node = current_node.next
-            elements.append(current_node.data)
         return elements
 
     #O(N) time O(1) space
     def search(self, data):
         current_node = self.head
+        
         while current_node is not None:
             if current_node.data == data:
-                return current_node.data
+                return True
             else:
                 current_node = current_node.next
         if current_node is None:
-            return "Value not found in list"
+            return False
 
     #O(N) time O(1) space
     def delete(self, data):
@@ -72,7 +73,6 @@ class linked_list:
         # 1's next to 3
 
 
-
         if prev_node is None:
             self.head = current_node.next
         else:
@@ -93,6 +93,7 @@ my_list.insert(5)
 my_list.insert(7)
 my_list.insert(9)
 my_list.insert(11)
+my_list.delete(11)
 
 print(my_list.display())
 print(my_list.search(3))
