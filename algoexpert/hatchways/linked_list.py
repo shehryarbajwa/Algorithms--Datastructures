@@ -9,6 +9,7 @@ class linked_list:
     def __init__(self, data):
         self.head = Node(data)
 
+    #O(1) time complexity
     def insert(self, data):
         new_node = Node(data)
         current_node = self.head
@@ -24,6 +25,7 @@ class linked_list:
             current = current.next
         return total
 
+    #O(N) time O(N) space
     def display(self):
         elements = []
         current_node = self.head
@@ -33,6 +35,7 @@ class linked_list:
             elements.append(current_node.data)
         return elements
 
+    #O(N) time O(1) space
     def search(self, data):
         current_node = self.head
         while current_node is not None:
@@ -43,6 +46,7 @@ class linked_list:
         if current_node is None:
             return "Value not found in list"
 
+    #O(N) time O(1) space
     def delete(self, data):
         current_node = self.head
         prev_node = None
