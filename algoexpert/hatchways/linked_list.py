@@ -61,22 +61,23 @@ class linked_list:
 
         if current_node is None:
             raise ValueError("Data not in list")
-        
-
-        #   If removing the first node from the linked list
-        #   1 -> 2
-        #   Delete 2
-        #   We can see that when we have to 2 delete 2, we have to make 1's next pointer point to Null
-
-        # 1 -> 2 -> 3 -> 4
-        # Remove 2
-        # 1's next to 3
-
 
         if prev_node is None:
             self.head = current_node.next
         else:
             prev_node.next = current_node.next
+
+        #   If removing the first node from the linked list
+        #   1 -> 2
+        #   Delete 2
+        #   We can see that when we have to delete 1, 1 is the current node.
+        #   1 being the current node has no previous node
+        #   so we shift head node to 1's next node which is 2
+        #   Thus we have removed the first node
+
+        # 1 -> 2 -> 3 -> 4
+        # Remove 2
+        # 1's next to 3
 
         
 
