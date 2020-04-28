@@ -1,3 +1,5 @@
+import unittest
+
 class Node:
     def __init__(self, value):
         self.value = value
@@ -120,3 +122,34 @@ ll.insertAfter(node1,node2)
 ll.insertAfter(node2,node3)
 ll.setTail(node4)
 print(ll.print_nodes())
+
+
+class Tests(unittest.TestCase):
+    def test_case_1(self):
+        node1 = Node(1)
+        node2 = Node(2)
+        node3 = Node(3)
+        node4 = Node(4)
+        ll = DoublyLinkedList()
+        ll.setHead(node1)
+        ll.insertAfter(node1,node2)
+        ll.insertAfter(node2,node3)
+        ll.setTail(node4)
+        self.assertEqual(ll.print_nodes(), [1,2,3,4])
+
+    def test_case_2(self):
+        node1 = Node(1)
+        node2 = Node(8)
+        node3 = Node(3)
+        node4 = Node(4)
+        ll = DoublyLinkedList()
+        ll.setHead(node1)
+        ll.insertAfter(node1,node2)
+        ll.insertAfter(node2,node3)
+        ll.setTail(node4)
+        self.assertEqual(ll.print_nodes(), [1,8,3,4])
+
+
+
+if __name__ == "__main__":
+    unittest.main()
