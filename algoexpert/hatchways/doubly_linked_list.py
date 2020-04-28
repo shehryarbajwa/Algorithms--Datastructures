@@ -5,7 +5,7 @@ class Node:
         self.next = None
 
 
-# Feel free to add new properties and methods to the class.
+
 class DoublyLinkedList:
     def __init__(self):
         self.head = None
