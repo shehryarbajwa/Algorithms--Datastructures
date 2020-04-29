@@ -1,3 +1,6 @@
+#Time Complexity O(N) for iterating over each node
+#Space Complexity O(3) i.e O(1) for storing 3 pointers 
+
 def reverseLinkedlist(head):
     #p3 is not declared here, since it wastes memory and p3 is dependent on p2 so it has to keep changing on each iteration
     p1,p2 = None, head
