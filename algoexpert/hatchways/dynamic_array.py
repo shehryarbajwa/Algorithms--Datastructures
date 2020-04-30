@@ -5,6 +5,7 @@ class DynamicArray:
         self.capacity = 2
         self.current_index = 0
 
+    #Add is a O(n) operation but worst time O(n^2)
     def add(self, item):
 
         if (self.capacity == self.current_index):
@@ -13,11 +14,13 @@ class DynamicArray:
         self.array[self.current_index] = item
         self.current_index += 1
 
+    #Remove is a O(N) operation
     def remove(self):
         if (self.current_index == 0):
             raise Exception("Cannot remove from empty list")
         self.current_index -= 1
 
+    #Lookup is O(1)
     def get(self, index):
         if (index < 0 or index > self.current_index):
             raise Exception("Index out of range")
@@ -25,7 +28,6 @@ class DynamicArray:
 
     def size(self):
         return len(self.array)
-
 
     def resizeArray(self):
         self.capacity *= 2
