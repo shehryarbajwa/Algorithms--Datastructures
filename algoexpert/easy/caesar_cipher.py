@@ -12,30 +12,19 @@ import unittest
 
 
 
+def ceaser(string, key):
 
-def caesarCipherEncrypt(string, key):
-
-    ord_array = []
     new_string = []
-
     key = key % 26
 
-    for i in range(len(string)):
-        ord_array.append(ord(string[i]) + key)
-
-    for value in ord_array:
-        if value <= 122:
-            new_string.append(chr(value))
+    for char in string:
+        nlc = ord(char) + key
+        if nlc <= 122:
+            new_string.append(chr(nlc))
         else:
-            new_string.append(chr(96 + value % 122))
+            new_string.append(chr(96 + nlc % 122))
 
-    return "".join(new_string)
+    return ''.join(new_string)
 
-
-class TestProgram(unittest.TestCase):
-    def test_case_1(self):
-        self.assertEqual(caesarCipherEncrypt('abc', 54), 'cde')
-
-
-if __name__ == '__main__':
-    unittest.main()
+    
+print(ord('a')) print(ceaser('aby', 2))
