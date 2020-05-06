@@ -23,7 +23,6 @@ class HashMap:
         
     def put(self, key, value):
         bucket_index = self.get_bucket_index(key)
-
         new_node = LinkedListNode(key, value)
         head = self.bucket_array[bucket_index]
 
@@ -35,7 +34,6 @@ class HashMap:
             head = head.next
 
         # key not found in the chain --> create a new entry and place it at the head of the chain
-        # Head refers to the end of the linked list
         # Why do we need the head refeerence again? Because in the previous key check, we have made our head to become None
 
         head = self.bucket_array[bucket_index]
@@ -46,7 +44,8 @@ class HashMap:
     def get(self, key):
         bucket_index = self.get_hash_code(key)
         head = self.bucket_array[bucket_index]
-        print('heads value is ', head.value)
+
+
         while head is not None:
             if head.key == key:
                 return head.value

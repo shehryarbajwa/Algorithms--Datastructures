@@ -1,4 +1,4 @@
-# Time Complexity O(W * n log n + n w log w)
+# Time Complexity O(W * n log n + n * w log w)
 # Space Complexity O(n * w)
 def group(words):
     sorted_words = []
