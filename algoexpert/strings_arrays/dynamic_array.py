@@ -6,7 +6,6 @@
 # Array with its current index is stored in RAM.
 # Resizing is done in O(N) time
 
-#Space Complexity O(N) since we store the array in memory
 class Dyanmic_array:
     def __init__(self, initial_size=10):
         self.array = [None for _ in range(initial_size)]
@@ -14,7 +13,7 @@ class Dyanmic_array:
         self.end_index = initial_size
 
     #Time Complexity O(1) Average amortized case
-    #Time Complexity O(N) if we have to resize the array
+    #Time Complexity Worst case O(N) if we have to resize the array
     #We can resize based on a fixed size so we lets say double
     #That means at each iteration we will have more empty indices and thus can achieve this in constant time
     def append(self, value):
@@ -61,6 +60,9 @@ class Dyanmic_array:
     #[0,4,6]
     #Thus what the input is the output changes with constant time
     
+    #Time Complexity O(N) output grows based on input if input doubly by 2
+    #Time Complexity O(1) if input growth less than double
+    #Space Complexity O(N) for resizing array+
     def resize_array(self, array):
         new_array = [None for _ in range(len(self.array) * 2)]
         for index, element in enumerate(self.array):
