@@ -1,6 +1,8 @@
 
 import unittest
 
+#Time Complexity O(N)
+# Space Complexity O(N)
 def two_sum(array, target):
 
     sum_map = {}

@@ -12,7 +12,6 @@ def palindrome_permutation(string):
             count[char] = 1
 
     count_values = list(count.values())
-
     count = 0
 
     for i in range(len(count_values)):

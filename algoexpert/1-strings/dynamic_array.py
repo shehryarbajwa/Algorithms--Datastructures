@@ -14,6 +14,7 @@ class Dyanmic_array:
 
     #Time Complexity O(1) Average amortized case
     #Time Complexity Worst case O(N) if we have to resize the array
+    
     #We can resize based on a fixed size so we lets say double
     #That means at each iteration we will have more empty indices and thus can achieve this in constant time
     def append(self, value):
