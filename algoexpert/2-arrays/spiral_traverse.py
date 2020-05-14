@@ -54,8 +54,6 @@ def spiralFill(array, startRow, endRow, startCol, endCol, result):
 		result.append(array[startRow][col])
 	
 	for row in range(startRow + 1, endRow + 1):
-		if startRow == endRow:
-			break
 		result.append(array[row][endCol])
 		
 	for col in reversed(range(startCol, endCol)):
