@@ -24,8 +24,6 @@ def longest_peak(array):
             right_index += 1
         
         i = right_index
-        print('right index:', right_index)
-        print('left index:', left_index)
         current_peak_length = (right_index) - (left_index + 1)
         longest_peak = max(current_peak_length, longest_peak)
 

@@ -2,6 +2,7 @@
 #Brute Force Solution
 #Time Complexity O(N log N)
 #Space Complexity O(N)
+
 def longest_range(array):
     temp_result = []
     result = []
