@@ -18,6 +18,8 @@ class LinkedList:
             current_node = current_node.next
         current_node.next = new_node
 
+    #Time Complexity O(N)
+    #Space Complexity O(1)
     def reverseLinkedlist(self, head):
         p1,p2 = None,head
 
@@ -29,6 +31,8 @@ class LinkedList:
 
         return p1
 
+    #Time Complexity O(N)
+    #Space Complexity O(N)
     def reverse_list_recursive(self, node):
         if node is None:
             return

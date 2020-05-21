@@ -22,8 +22,6 @@ print(LL.next.value)
 print(LL.next.next.value)
 print(LL.next.next.next.value)
 
-remove_kth_from_end(LL, 2)
-
 print(LL.value)
 print(LL.next.value)
 print(LL.next.next.value)
