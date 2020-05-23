@@ -18,6 +18,33 @@ def palindrome(head):
         first = first.next
         second = second.next
     return True
+#1-2-2-1
+#Fast will go till 2
+#Slow will go till second 2
+#After reversal
+#1-2 1-2
+#Slow will reverse 2-1 to 1-2
+#Then we compare 1 to 1 then increment and check 2 == 2
+#If they are we have a palindrome
+def reverse_palindrome(head):
+    slow = head
+    fast = head
+
+    while fast is not None and fast.next is not None:
+        fast = fast.next.next
+        slow = slow.next
+
+    slow = reverse(slow)
+    fast = head
+
+    #Now slow will hit None value first
+    while slow is not None:
+        if slow.value != fast.value:
+            return False
+        slow = slow.next
+        fast = fast.next
+
+    return True
 
 
 def reverse(head):
