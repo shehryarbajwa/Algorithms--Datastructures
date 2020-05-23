@@ -25,6 +25,9 @@ class LinkedList:
     #Time Complexity O(N)
 
     def append(self, data):
+        if self.head is None:
+            return
+        
         current = self.head
 
         while current.next is not None:
