@@ -1,3 +1,5 @@
+import unittest
+
 class MultiStack:
     
     def __init__(self, stacksize):
@@ -20,6 +22,11 @@ class MultiStack:
         self.size[stacknum] -= 1
         return value
 
+    def peek(self, stacknum):
+        if self.is_empty(stacknum):
+            raise ValueError("Stack is empty")
+        value = self.array[self.indexTop(stacknum)]
+        return value
 
     def is_empty(self, stacknum):
         return self.size[stacknum] == 0
@@ -28,26 +35,23 @@ class MultiStack:
         return self.size[stacknum] == self.stackcapacity
 
     def indexTop(self, stacknum):
-        offset = stacknum * stackcapacity
+        offset = stacknum * self.stackcapacity
         size = self.size[stacknum]
         return offset + size - 1
 
 
-    
+class Tests(unittest.TestCase):
+    def test_case_1(self):
+        three_stacks = MultiStack(2)
+        three_stacks.push(1, 0)
+        three_stacks.push(2, 0)
+        three_stacks.push(3,1)
+        three_stacks.push(4,1)
+        three_stacks.push(5,2)
+        three_stacks.push(6,2)
+        self.assertEqual(three_stacks.is_full(2), True)
+        self.assertEqual(three_stacks.is_empty(2), False)
 
 
-       
-
-def ThreeInOne():
-    newstack = MultiStack(2)
-    print(newstack.IsEmpty(1))
-    newstack.Push(3, 1)
-    print(newstack.Peek(1))
-    print(newstack.IsEmpty(1))
-    newstack.Push(2, 1)
-    print(newstack.Peek(1))
-    print(newstack.Pop(1))
-    print(newstack.Peek(1))
-    newstack.Push(3, 1)
-
-ThreeInOne()
+if __name__ == '__main__':
+    unittest.main()
