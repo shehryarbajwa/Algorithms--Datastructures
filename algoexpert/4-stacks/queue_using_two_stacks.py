@@ -37,6 +37,9 @@ class Stack:
         self.array[self.next_index] = None
         return self
 
+
+#Time Complexity O(1) for enqueue, dequeue since stack peek and pop are also O(1) operations
+#Space Complexity O(N)
 class QueueTwoStacks:
     def __init__(self):
         self.stackOne = Stack()
