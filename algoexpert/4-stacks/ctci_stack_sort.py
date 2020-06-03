@@ -1,3 +1,7 @@
+
+#Time Complexity O(N^2)
+#Space Complexity O(N)
+
 def sortStack(stack):
   tempStack = Stack()
   while not stack.isEmpty():
