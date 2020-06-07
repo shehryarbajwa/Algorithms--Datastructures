@@ -1,6 +1,8 @@
 
 
 def longest_duplicate_substring(string):
+    if len(string) == 0:
+        return 0
     last_seen = {}
     startIdx = 0
     longest = [0,1]
@@ -14,6 +16,6 @@ def longest_duplicate_substring(string):
 
         last_seen[char] = i
     
-    return string[longest[0]:longest[1]]
+    return longest[1] - longest[0]
 
-print(longest_duplicate_substring('clementisacap'))
+print(longest_duplicate_substring('pwwkew'))
