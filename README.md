@@ -5,7 +5,7 @@ Various Algorithms and Data Structures implemented in Python
 
 100+ Questions on 
 
--Arrays
+<em>-Arrays
 -Strings
 -Trees
 -Binary Search Trees
