@@ -1,3 +1,7 @@
+#Time Complexity O(N^2)
+#Space Complexity O(N^2)
+
+
 class SuffixTrie:
     def __init__(self, string):
         self.root = {}
