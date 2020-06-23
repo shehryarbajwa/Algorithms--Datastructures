@@ -1,4 +1,7 @@
 
+#Time Complexity O(ns + bs)
+#Space Complexity O(ns)
+
 def multi_string_search(big_string, small_string):
     trie = Trie()
     for string in small_string:
