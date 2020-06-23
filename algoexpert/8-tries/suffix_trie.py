@@ -23,4 +23,4 @@ class SuffixTrie:
             if letter not in node:
                 return False
             node = node[letter]
-        return self.endSymbol in node
+        return self.endSymbol in node  
