@@ -1,4 +1,6 @@
 import unittest
+#Time Complexity O(N) including subarrays and their elements
+#Space Complexity O(d) where d is the depth of the largest subarray which will take space on the call stack
 def product_sum(array, depth=1):
     sum = 0
     
@@ -18,4 +20,4 @@ class test(unittest.TestCase):
 if __name__ == '__main__':
     unittest.main()
 
-    
+

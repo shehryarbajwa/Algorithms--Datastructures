@@ -48,6 +48,7 @@ def node_depth_helper(node, runningsum, nodes_depth):
     node_depth_helper(node.left, runningsum, nodes_depth)
     node_depth_helper(node.right, runningsum, nodes_depth)
 
+
 bt = BinaryTree(1)
 bt.left = BinaryTree(2)
 bt.right = BinaryTree(3)
