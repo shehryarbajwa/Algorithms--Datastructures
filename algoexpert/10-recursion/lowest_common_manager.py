@@ -15,7 +15,6 @@ def get_org_info(node_master, node_child_one, node_child_two):
         num_important_reports += 1
 
     lowest_common_manager = manager if num_important_reports == 2 else None
-s
     return Org_info(lowest_common_manager, num_important_reports)
 
 class Org_info:
