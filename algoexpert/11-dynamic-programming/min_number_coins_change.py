@@ -1,3 +1,6 @@
+#Time Complexity O(nd)
+#Space Complexity O(n)
+
 def min_number_coins_change(n,denoms):
     min_ways_to_make_change = [float('inf') for amount in range(n + 1)]
     min_ways_to_make_change[0] = 0
