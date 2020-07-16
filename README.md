@@ -5,15 +5,15 @@ Various Algorithms and Data Structures implemented in Python
 
 100+ Questions on 
 
-<em>-Arrays
--Strings
--Trees
--Binary Search Trees
--Graphs
--Heaps
--Tries
--Recursion
--Dynamic Programming
--Searching and Sorting
+## Arrays
+## Strings
+## Trees
+## Binary Search Trees
+## Graphs
+## Heaps
+## Tries
+## Recursion
+## Dynamic Programming
+## Searching and Sorting
 
 Time and Space Complexities handled
