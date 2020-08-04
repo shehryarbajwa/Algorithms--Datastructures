@@ -11,7 +11,6 @@ def levenshtein_distance(str1, str2):
                 rows[i][j] = rows[i - 1][j - 1]
             else:
                 rows[i][j] = 1 + min(rows[i - 1][j], rows[i][j - 1], rows[i - 1][j - 1])
-    
     return rows[-1][-1]
 
     
