@@ -29,8 +29,6 @@ def spiral_traverse(matrix):
         for i in reversed(range(row_lower_bound + 1, row_upper_bound)):
             output.append(matrix[i][col_lower_bound])
 
-
-
         #Finishing one full cycle
         row_lower_bound += 1
         row_upper_bound -= 1
