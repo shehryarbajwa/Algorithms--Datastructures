@@ -12,11 +12,12 @@ def valid_soduku(matrix):
     for row in range(start_row, end_row):
         for col in range(start_col, end_col):
             if matrix[row][col] != '.':
-                current_num = int(matrix[row][col])
+                current_num = (matrix[row][col])
 
-                if (row, current_num) in unique or (current_num, col) in unique:
+                if (row, current_num) in unique or (current_num, col) in unique or (row // 3, col // 3, current_num) in unique:
                     return False
 
+                unique.add((row // 3, col // 3, current_num))
                 unique.add((row, current_num))
                 unique.add((current_num, col))
 
