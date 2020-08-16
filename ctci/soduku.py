@@ -20,7 +20,6 @@ def valid_soduku(matrix):
                 unique.add((row // 3, col // 3, current_num))
                 unique.add((row, current_num))
                 unique.add((current_num, col))
-
     return True
 
 print(valid_soduku([
