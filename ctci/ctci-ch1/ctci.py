@@ -27,7 +27,9 @@ class Tree:
         else:
             root.value = None
 
-        return root.value
+        return root
+
+
 
 class Tests(unittest.TestCase):
     def test_case_1(self):
@@ -50,7 +52,7 @@ class Tests(unittest.TestCase):
 
         t4 = Tree()
 
-        self.assertEqual(t4.merge_binary(t1, t2), t3.value)
+        self.assertEqual(t4.merge_binary(t1, t2).value, t3.value)
 
 
 if __name__ == "__main__":
