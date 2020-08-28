@@ -23,4 +23,6 @@ def distinct_pairs(array, target):
             left += 1
     return count
 
+print(21 // 10)
+
 print(distinct_pairs([1,3,46, 1, 3, 9],47))

@@ -50,6 +50,37 @@ class Tests(unittest.TestCase):
 
     def test_case_5(self):
         self.assertEqual(is_edit_away('sales','1234'), False)
-
+if len(s) == len(t):
+            return self.one_edit_replace(s, t)
+        elif len(s) + 1 == len(t):
+            return self.one_removal(s, t)
+        elif len(s) - 1 == len(t):
+            return self.one_removal(t, s)
+        else:
+            return False
+        
+    def one_edit_replace(self, s, t):
+        found_difference = False
+        
+        for i in range(len(s)):
+            if s[i] != t[i]:
+                #If we found difference the second time in our loop, we can exit
+                if found_difference:
+                    return False
+                found_difference = True
+        return True
+    
+    def one_removal(self, s , t):
+        i = 0
+        j = 0
+        while i < len(s) and j < len(t):
+            if s[i] != t[j]:
+                if i != j:
+                    return False
+                j += 1
+            else:
+                i += 1
+                j += 1
+        return True
 if __name__ == '__main__':
     unittest.main()
