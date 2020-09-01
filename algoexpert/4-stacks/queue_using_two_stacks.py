@@ -57,9 +57,9 @@ class QueueTwoStacks:
                 self.stackOne.push(self.stackTwo.pop())
 
     def dequeue(self):
-        shiftStacks()
+        self.shiftStacks()
         return self.stackOne.pop()
 
     def peek(self):
-        shiftStacks()
+        self.shiftStacks()
         return self.stackOne.peek()

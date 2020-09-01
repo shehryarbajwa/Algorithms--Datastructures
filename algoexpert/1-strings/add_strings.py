@@ -20,5 +20,6 @@ def add_strings(s1, s2):
     new_res = ""
     for x in res:
         new_res += str(x)
+    
     return new_res[::-1]
 print(add_strings('16','19'))
