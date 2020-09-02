@@ -11,4 +11,4 @@ def only_digits(string):
             return False
     return True
 
-print(only_digits('123445a'))
+print(only_digits('aaaaa'))
