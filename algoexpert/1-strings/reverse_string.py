@@ -1,5 +1,6 @@
 
-
+#Time Complexity O(N)
+#Space Complexity O(N)
 def reverse_string(string):
     string = [x for x in string]
     print(string)
