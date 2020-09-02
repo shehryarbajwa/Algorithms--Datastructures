@@ -1,6 +1,6 @@
 
 #Time Complexity O(N)
-#Space Complexity O()
+#Space Complexity O(k) k is size of concatenated string
 def reverse_string_recursion(string):
     if string == "":
         return string
