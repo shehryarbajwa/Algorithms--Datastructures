@@ -19,4 +19,18 @@ def first_non_repeating(string):
             continue
     return string[index]
 
+def count_spaces(string):
+    b_count = 0
+
+    for char in string:
+        if char == 'b':
+            if b_count == 1:
+                continue
+            else:
+                b_count += 1
+        else:
+            b_count = 0
+    return b_count
+
+
 print(first_non_repeating('hello'))
