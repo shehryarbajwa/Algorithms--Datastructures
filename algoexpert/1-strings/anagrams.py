@@ -26,7 +26,6 @@ def are_anagrams_hash(s1, s2):
             return False
     return True
 
-
 print(are_anagrams_hash('act','ncnncnc'))
 
 
