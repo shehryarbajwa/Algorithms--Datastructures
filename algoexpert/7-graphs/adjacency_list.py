@@ -1,6 +1,4 @@
-#Undirected graph
-
-
+#Build a graph via Adjacency List
 class Graph:
     def __init__(self, nodes, is_directed=False):
         self.is_directed = is_directed
@@ -23,6 +21,26 @@ class Graph:
         for node in self.nodes:
             print(node, ' ->', self.adjacency_list[node])
 
+    def depth_first_search(self, array, node):
+        if node not in array:
+            array.append(node)
+            for neighbor in self.adjacency_list[node]:
+                self.depth_first_search(array, neighbor)
+        return array
+
+    def breath_first_search(self, array, node):
+        array = [node]
+        queue = [node]
+
+        while queue:
+            current_node = queue.pop(0) 
+
+            for neighbour in self.adjacency_list[current_node]:
+                if neighbour not in array:
+                    array.append(neighbour)
+                    queue.append(neighbour)
+        return array
+
 nodes = ['A', 'B', 'C', 'D', 'E']
 g = Graph(nodes)
 g.populate_adjacency_list()
@@ -35,4 +53,20 @@ g.add_edge('C', 'A')
 g.add_edge('C', 'D')
 
 g.print_adjacency_list()
+# print(g.depth_first_search([], nodes[0]))
+print(g.breath_first_search([], nodes[0]))
+
+print('\n')
+# nodes = ['A', 'B', 'C', 'D', 'E']
+# g2 = Graph(nodes, True)
+# g2.populate_adjacency_list()
+
+# g2.add_edge('A','B')
+# g2.add_edge('A','C')
+# g2.add_edge('B','D')
+# g2.add_edge('C','D')
+# g2.add_edge('C','E')
+# g2.add_edge('D','E')
+
+# g2.print_adjacency_list()
     
