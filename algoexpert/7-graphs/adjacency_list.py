@@ -23,6 +23,16 @@ class Graph:
         for node in self.nodes:
             print(node, ' ->', self.adjacency_list[node])
 
+nodes = ['A', 'B', 'C', 'D', 'E']
+g = Graph(nodes)
+g.populate_adjacency_list()
 
+g.add_edge('A', 'B')
+g.add_edge('B', 'D')
+g.add_edge('D', 'E')
+g.add_edge('E', 'C')
+g.add_edge('C', 'A')
+g.add_edge('C', 'D')
 
+g.print_adjacency_list()
     
