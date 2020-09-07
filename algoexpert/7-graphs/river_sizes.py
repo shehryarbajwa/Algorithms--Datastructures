@@ -22,8 +22,8 @@ def traverse(i, j, matrix, sizes,visited):
         if matrix[i][j] == 0:
             continue
         current_river_size += 1
-        getUnivisitedNeighours = getUnivisitedNeighours(i,j,matrix, visited)
-        for neighbor in getUnivisitedNeighours:
+        neighbours = getUnivisitedNeighours(i,j,matrix, visited)
+        for neighbor in neighbours:
             nodes_to_explore.append(neighbor)
     if current_river_size > 0:
         sizes.append(current_river_size)
@@ -38,7 +38,7 @@ def getUnivisitedNeighours(i,j,matrix, visited):
         univisitedNeighours.append([i][j - 1])
     if j < len(matrix)[i] - 1 and not visited[i][j + 1]:
         univisitedNeighours.append([i][j + 1])
-    return unvisitedNeighours
+    return univisitedNeighours
 
 
 
