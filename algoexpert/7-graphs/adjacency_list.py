@@ -21,27 +21,28 @@ class Graph:
         for node in self.nodes:
             print(node, ' ->', self.adjacency_list[node])
 
-    def depth_first_search(self, visited, node):
-        if node in visited:
-            return
-        else:
-            visited.append(node)
-            for neighbor in self.adjacency_list[node]:
-                self.depth_first_search(visited, neighbor)
+    def depth_first_search(self, start_vertex):
+        visited = []
+        def recurse(current_vertex):
+            visited.append(current_vertex)
+            for v in self.adjacency_list[current_vertex]:
+                if v not in visited:
+                    recurse(v)
+        recurse(start_vertex)
         return visited
         
 
     def breath_first_search(self, array, node):
-        array = [node]
+        visited = [node]
         queue = [node]
 
         while queue:
             current_node = queue.pop(0)
             for neighbour in self.adjacency_list[current_node]:
-                if neighbour not in array:
-                    array.append(neighbour)
+                if neighbour not in visited:
+                    visited.append(neighbour)
                     queue.append(neighbour)
-        return array
+        return visited
 
 nodes = ['A', 'B', 'C', 'D', 'E']
 g = Graph(nodes)
@@ -55,7 +56,7 @@ g.add_edge('C', 'A')
 g.add_edge('C', 'D')
 
 g.print_adjacency_list()
-print(g.depth_first_search([], nodes[0]))
+print(g.depth_first_search('A'))
 # print(g.breath_first_search([], nodes[0]))
 
 print('\n')
