@@ -17,6 +17,9 @@ class Graph:
     def degree(self, node):
         return len(self.adjacency_list[node])
 
+    def length(self):
+        return len(self.adjacency_list)
+
     def print_adjacency_list(self):
         for node in self.nodes:
             print(node, ' ->', self.adjacency_list[node])
@@ -56,6 +59,7 @@ g.add_edge('C', 'A')
 g.add_edge('C', 'D')
 
 g.print_adjacency_list()
+print(g.length())
 print(g.depth_first_search('A'))
 # print(g.breath_first_search([], nodes[0]))
 
