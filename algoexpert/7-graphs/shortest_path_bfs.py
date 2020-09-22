@@ -9,7 +9,7 @@ def shortest_path(graph, source, destination):
 
     #BFS traverse on neighbors
     while queue:
-        current_vertex = queue.popleft()
+        current_vertex = queue.pop()
 
         for neighbor in graph[current_vertex]:
             if neighbor not in visited:
