@@ -6,21 +6,21 @@ class Trie:
 
     def populate_trie(self, string):
         for i in range(len(string)):
-            self.build_trie(i, string)
+            self.build_tree(i, string)
 
-    def build_trie(self, index, string):
-        root = self.root
+    def build_tree(self, index, string):
+        current = self.root
         for i in range(index, len(string)):
             letter = string[i]
-            if letter not in root:
-                root[letter] = {}
-            root = root[letter]
-        root[self.end_symbol] = True
+            if letter not in current:
+                current[letter] = {}
+            current = current[letter]
+        current[self.end_symbol] = True
 
-    def contains(self, word):
+    def contains(self, string):
         current = self.root
-        for letter in word:
+        for letter in string:
             if letter not in current:
                 return False
             current = current[letter]
-        return True
+        return self.end_symbol in current
