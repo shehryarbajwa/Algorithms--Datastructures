@@ -14,5 +14,6 @@ print(priority([8,4,7,2,3,4,5]))
 #          /   \ 
 #         3     4
 #        / \   / \
-#       8   4  5  7 
+#       4   8  7  5 
 # Python heapp smallest element has the highest priority
+# Heapify doesn't sort the array just makes a heap out of it.
