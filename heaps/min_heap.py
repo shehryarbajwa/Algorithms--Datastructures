@@ -10,7 +10,6 @@ class MinHeap:
             self.sift_down(current_idx, len(array) - 1, array)
         return array
 
-
     def sift_down(self, current_idx, end_idx, heap):
         child_one_idx = current_idx * 2 + 1
         while child_one_idx <= end_idx:
@@ -27,10 +26,7 @@ class MinHeap:
                 child_one_idx = current_idx * 2 + 1
             else:
                 return
-
-
-
-
+    
     def sift_up(self, current_idx, heap):
         parent_idx = (current_idx - 1) // 2
 

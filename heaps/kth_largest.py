@@ -14,6 +14,8 @@ def kth_largest_element(array, k):
         i += 1
     return res * -1
 
+#Time complexity O(N) + O(N log(N))
+#Space Complexity O(1)
 def kth_largest_element_in_place(array, k):
     for index, num in enumerate(array):
         array[index] = num * -1
