@@ -6,7 +6,7 @@ class Node:
 
 class LinkedList:
     def __init__(self, head):
-        self.head = head
+        self.head = Node(head)
 
     #Time Complexity O(1)
     #Space Complexity O(N)
@@ -23,7 +23,6 @@ class LinkedList:
         prev.next = None
 
     #Time Complexity O(N)
-
     def append(self, data):
         if self.head is None:
             return
@@ -69,5 +68,7 @@ class LinkedList:
 
         previous.next = current.next
 
-    
-    
+ll = LinkedList(1)
+ll.append(2)
+ll.append(5)
+print(ll.head.next.value)
