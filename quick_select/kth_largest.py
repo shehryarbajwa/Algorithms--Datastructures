@@ -1,11 +1,11 @@
-def quick_select(array, k):
-	position = k - 1
-	return quick_select_helper(array, position, 0, len(array) - 1)
+def kth_largest_element(array, k):
+    position = len(array) - 1 - (k - 1)
+    return quick_select_helper(array, position, 0, len(array) - 1)
 
 def quick_select_helper(array, position, start_idx, end_idx):
 	while True:
 		if start_idx > end_idx:
-			break
+			raise IndexError('Index out of range')
 		pivot_idx = start_idx
 		left = start_idx + 1
 		right = end_idx
@@ -27,16 +27,11 @@ def quick_select_helper(array, position, start_idx, end_idx):
 		else:
 			start_idx = right + 1
 
-
-
-
-
-
 def swap(array, left, right):
 	array[left], array[right] = array[right], array[left]
 
 
 
-print(quick_select([8,5,2,9,7,6,3],3))
+print(kth_largest_element([8,5,2,9,7,6,3],8))
 
 

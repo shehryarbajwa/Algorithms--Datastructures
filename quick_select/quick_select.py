@@ -3,9 +3,7 @@ def quick_select(array, k):
 	return quick_select_helper(array, position, 0, len(array) - 1)
 
 def quick_select_helper(array, position, start_idx, end_idx):
-	while True:
-		if start_idx > end_idx:
-			break
+	while start_idx <= end_idx:
 		pivot_idx = start_idx
 		left = start_idx + 1
 		right = end_idx
@@ -26,11 +24,6 @@ def quick_select_helper(array, position, start_idx, end_idx):
 			end_idx = right - 1 
 		else:
 			start_idx = right + 1
-
-
-
-
-
 
 def swap(array, left, right):
 	array[left], array[right] = array[right], array[left]
