@@ -31,10 +31,6 @@ class ContinousMedian:
         else:
             self.median = self.greaters.peek()
 
-
-
-
-
 class Heap:
     def __init__(self, comparisonFunc, array):
         self.comparisonFunc = comparisonFunc

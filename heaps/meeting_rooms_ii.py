@@ -1,7 +1,7 @@
 import heapq
 def meeting_rooms(intervals):
     if not intervals:
-        return []
+        return 0
     
     free_rooms = []
 
