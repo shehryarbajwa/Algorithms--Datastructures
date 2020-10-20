@@ -29,9 +29,7 @@ def quick_select_helper(array, position, start_idx, end_idx):
 
 def swap(array, left, right):
 	array[left], array[right] = array[right], array[left]
-
-
-
+	
 print(kth_largest_element([8,5,2,9,7,6,3],8))
 
 
