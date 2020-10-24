@@ -37,5 +37,4 @@ class Solution:
         return True
 
 n = Solution()
-n.solveNQueens(3)
 print(n.solveNQueens(3))
