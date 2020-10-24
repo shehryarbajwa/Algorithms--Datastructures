@@ -15,6 +15,7 @@ class Solution:
             if self.isSafe(board, row, col):
                 board[row][col] = "Q"
                 self.placeQueens(board, row + 1, result)
+                #backtracking step
                 board[row][col] = "."
     
     def isSafe(self, board, row, col):

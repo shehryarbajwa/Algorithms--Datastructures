@@ -1,3 +1,7 @@
+#Time Complexity O(4^n * 3^n)
+#Worst case is O(4^n) Average case is O(3^n)
+#Space Complexity O(d) max height of the calls on the call stack
+
 def letter_combinations(digits):
     if not digits:
         return []
