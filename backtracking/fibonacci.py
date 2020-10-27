@@ -8,6 +8,14 @@ def fibonacci_number(n):
 
     return fibonacci_number(n - 1) + fibonacci_number(n - 2)
 
-print(fibonacci_number(4))
+
+def fibonacci_number_memoized(n, fib = {1:0, 2:1}):
+    if n in fib:
+        return fib[n]
+    else:
+        fib[n] = fibonacci_number_memoized(n - 1, fib) + fibonacci_number_memoized(n - 2, fib)
+        return fib[n]
+    
+print(fibonacci_number_memoized(6))
 
     
