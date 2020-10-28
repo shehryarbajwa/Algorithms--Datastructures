@@ -23,6 +23,7 @@ def permutations_helper(array, current_permutation, permutations):
             new_permutation = current_permutation + [array[i]]
             permutations_helper(new_array, new_permutation, permutations)
 
+print(permutations_recursive([1,1,2,3]))
 
 #Backtracking
 #Time Complexity O(n!*n)
