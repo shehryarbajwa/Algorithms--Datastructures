@@ -7,4 +7,20 @@ def subsets(array):
             subsets.append(subsets[i] + [num])
     return subsets
 
+def subsets_backtracking(array):
+    
+    def helper(idx, current_subset, subsets):
+        
+        subsets.append(current_subset[:])
+
+        for i in range(idx, len(array)):
+
+            element = array[i]
+            helper(i + 1, current_subset + [element], subsets)
+
+    subsets = []
+    helper(0, [], subsets)
+    return subsets
+
+print('backtracked', subsets_backtracking([1,2,3]))
 print(subsets([1,2,3]))
