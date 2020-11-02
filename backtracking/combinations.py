@@ -1,4 +1,5 @@
 #Time Complexity O(K * NCK) - k for hitting base case, NCK for selecting 4Combination 2 selections
+#Space Complexity O(NCK) - storing base case
 def combinations(n, k):
     output = []
     def backtrack(start, current_combination):
