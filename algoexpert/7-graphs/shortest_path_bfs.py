@@ -34,7 +34,7 @@ def shortest_path(graph, source, destination):
 
     return path[::-1]
     
-print(shortest_path([[1,2], [0,2,4], [0,1,3], [2], [1]], 4, 0))
+print(shortest_path([[1,2], [0,2,4], [0,1,3], [2], [1]], 4, 1))
 
 
 
