@@ -1,15 +1,20 @@
-def permutations(array):
+import math
+def permutations(n, k):
+    total_sum = sum([i for i in range(1, n + 1)])
+    print(total_sum)
+    res = []
 
-    def backtrack(array, current_permutation, total_permutations):
-        if not array:
-            total_permutations.append(current_permutation)
-        else:
-            for i in range(len(array)):
-                new_array = array[:i] + array[i + 1:]
-                new_permutation = current_permutation + [array[i]]
-                backtrack(new_array, new_permutation, total_permutations)
-    output = []
-    backtrack(array, [], output)
-    return output
+    def backtracking(current_permutation, permutation_sum):
+        if len(current_permutation) == k:
+            if permutation_sum > total_sum - permutation_sum:
+                res.append(math.factorial(n - k))
+            return
+        for i in range(1, n + 1):
+            new_permutation = current_permutation + [i]
+            current_sum = permutation_sum + i
+            if i not in current_permutation:
+                backtracking(new_permutation, current_sum)
 
-print(permutations([1,2,3]))
+    backtracking([], 0)
+    return len(res)
+print(permutations(3, 2))
