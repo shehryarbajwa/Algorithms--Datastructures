@@ -1,12 +1,15 @@
 import math
+#Time Complexity O(n!)
+#Optimization O(n!/(n-k!))
+#Space Complexity O(n!/(n-k!))
 def permutations(n, k):
     total_sum = sum([i for i in range(1, n + 1)])
-    print(total_sum)
     res = []
 
     def backtracking(current_permutation, permutation_sum):
         if len(current_permutation) == k:
-            if permutation_sum > total_sum - permutation_sum:
+            remainder = total_sum - permutation_sum
+            if permutation_sum > remainder:
                 res.append(math.factorial(n - k))
             return
         for i in range(1, n + 1):
