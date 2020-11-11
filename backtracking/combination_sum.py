@@ -1,3 +1,5 @@
+#Time Complexity O(n ^ height of tree - sum(x1, x2, x3) == target)
+#Space Complexity O(height of tree)
 def combinations_sum(combinations, target):
     output = []
 
@@ -15,6 +17,4 @@ def combinations_sum(combinations, target):
                 backtrack(unique_sum, new_combination, target)
     backtrack(0, [], target)
     return output
-
-print(combinations_sum([2,3,6,7], 7))
 
