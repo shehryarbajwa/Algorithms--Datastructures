@@ -6,26 +6,29 @@ class Node:
 
 
 def ten_conseuctive(root):
-    prev = None
-    streak = 0
+    output = 0
     res = False
-    def visit(node):
+    def visit(node, node_path, parent):
+
+        nonlocal output, res
+        output = max(output, node_path)
+
         if not node:
             return
-        visit(node.left)
-        nonlocal prev, streak, res
         
-        if prev != None and node.value == prev + 1:
-            streak += 1
+        if not parent or (parent.value - node.value) == -1:
+            node_path += 1
         else:
-            streak = 1
-
-        if streak == 10:
+            node_path = 1
+        
+        if node_path == 10:
             res = True
-        prev = node.value
-
-        visit(node.right)
-    visit(root)
+        
+        visit(node.left, node_path, node)
+        visit(node.right, node_path, node)
+            
+        
+    visit(root, 0, None)
     return res
 
 

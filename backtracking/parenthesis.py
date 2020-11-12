@@ -44,6 +44,4 @@ def generate_parenthesis_2(n):
     backtrack(0, 0)
     return result
 
-
-
 print(generate_parenthesis_2(3))
