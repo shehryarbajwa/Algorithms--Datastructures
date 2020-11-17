@@ -14,7 +14,7 @@ def binary_search_closest(array, target):
 
     #Post processing
 
-    if abs(target - array[left]) < abs(target - array[right]):
+    if abs(target - array[left]) <= abs(target - array[right]):
         return left
     else:
         return right
