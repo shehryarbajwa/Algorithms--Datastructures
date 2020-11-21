@@ -18,3 +18,4 @@ def binary_search(array, target):
 
 
 print(binary_search([1,2,3,4,5], 2))
+print(binary_search([1,2,3,4,5], 5))
