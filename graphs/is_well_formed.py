@@ -36,7 +36,6 @@ def is_well_formed(graph):
             if node not in neighbour_set[neighbor]:
                 return False
 
-
     return True
 
 
