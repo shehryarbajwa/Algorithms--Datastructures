@@ -14,3 +14,14 @@ def in_degree(graph):
             res.append(node)
 
     return res
+
+
+def out_degree_zero(graph):
+    n = len(graph)
+
+    res = []
+    for node in range(n):
+        if len(graph[node]) == 0:
+            res.append(node)
+
+    return res
