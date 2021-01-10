@@ -1,6 +1,6 @@
 def total_connected_components(graph):
     n = len(graph)
-    visited = n * [False]
+    visited = [False for _ in range(n)]
 
     def visit(node):
         for neighbor in graph[node]:
@@ -8,10 +8,13 @@ def total_connected_components(graph):
                 visited[neighbor] = True
                 visit(neighbor)
 
-    total_cc = 0
-    for node in range(n):
-        if not visited[node]:
-            total_cc += 1
-            visited[node] = True
-            visit(node)
-    return total_cc
+    total_connected_components = 0
+
+    for u in range(n):
+        if not visited[u]:
+            total_connected_components += 1
+            visited[u] = True
+            visit(u)
+    
+    return total_connected_components
+

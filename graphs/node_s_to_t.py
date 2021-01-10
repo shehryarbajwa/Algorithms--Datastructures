@@ -10,4 +10,4 @@ def can_s_reach_t(G, s, t):
                 visited[neighbor] = True
                 visit(neighbor)
 
-    return True if visited[t] == True else False
+    return visited[t]
