@@ -16,3 +16,4 @@ def longest_streak(root):
     
     visit(root, None, 0)
     return longest
+    

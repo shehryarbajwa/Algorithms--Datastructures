@@ -21,7 +21,6 @@ def is_strongly_connected(G, source):
             G_reverse[neighbor].append(v)
 
     visited[0] = True
-
     visit(G_reverse, source)
     return all(visited)
 
