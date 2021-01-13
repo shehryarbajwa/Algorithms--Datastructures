@@ -1,6 +1,6 @@
 def detect_cycle(graph):
     n = len(graph)
-    visited = [False for _ in range(n)]
+    visited = set()
 
     def visit(node, parent):
         for neighbor in graph[node]:
@@ -9,10 +9,12 @@ def detect_cycle(graph):
 
             if not visited[neighbor]:
                 visited[neighbor] = True
-                visit(neighbor, node)
+                if visit(neighbor, node):
+                    return True
+        return False
 
     for i in range(n):
-        if not visited[i]:
+        if i not in visited:
             visited[i] = True
 
             if visit(i, -1):
