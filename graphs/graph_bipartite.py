@@ -3,7 +3,7 @@ def is2Colorable(graph):
     color = [-1] * n
 
 
-    def visit(node):
+    def is2colored(node):
         for neighbor in graph[node]:
             if color[neighbor] == color[node]:
                 return False
@@ -11,7 +11,7 @@ def is2Colorable(graph):
             if not color[neighbor]:
                 color[neighbor] = 1 if color[node] == 0 else 1
 
-                if not visit(neighbor):
+                if not is2colored(neighbor):
                     return False
         return True
 
@@ -19,6 +19,6 @@ def is2Colorable(graph):
         if not color[u]:
             color[u] = 0
 
-            if visit(u) == True:
-                return True
-    return False
+            if not is2colored(u):
+                return False
+    return True
