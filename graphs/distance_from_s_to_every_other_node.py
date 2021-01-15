@@ -11,5 +11,6 @@ def get_distances(graph, s):
 
             dists[nbr] = dists[node] + 1
             visit(nbr)
+    
     visit(s)
     return dists
