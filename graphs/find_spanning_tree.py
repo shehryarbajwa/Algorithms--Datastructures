@@ -1,4 +1,4 @@
-def spanning_tree(G, source):
+def spanning_tree(G, s):
     n = len(G)
     vis = n * [False]
     vis[0] = True
@@ -11,6 +11,7 @@ def spanning_tree(G, source):
                 T[v].append(nbr)
                 T[nbr].append(v)
                 visit(nbr)
-    
-    visit(source)
+    visit(s)
     return T
+
+print(spanning_tree([[1,2],[0,2],[0,1]], 0))
