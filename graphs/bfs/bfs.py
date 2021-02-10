@@ -1,9 +1,11 @@
+from collections import deque
+
 def bfs(G, start):
     n = len(G)
     vis = [False for v in range(n)]
     vis[start] = True
 
-    Q = queue()
+    Q = deque()
     Q.append(start)
 
     while Q:
