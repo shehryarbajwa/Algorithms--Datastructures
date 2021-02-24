@@ -1,7 +1,6 @@
 def longest_streak(root):
     longest = 0
-
-
+    
     def visit(node, parent, current_streak):
         if not node:
             return
