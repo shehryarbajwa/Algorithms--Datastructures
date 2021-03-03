@@ -20,7 +20,6 @@ def walls_and_gates(rooms):
                         if n_row >= 0 and n_row <= len(rooms) - 1 and n_col >= 0 and n_col <= len(rooms[0]) - 1 and rooms[n_row][n_col] > rooms[current_row][current_col]:
                             rooms[n_row][n_col] = rooms[current_row][current_col] + 1
                             queue.append((n_row, n_col))
-
     return rooms 
 
 
